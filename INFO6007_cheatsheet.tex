@@ -1,0 +1,1431 @@
+% INFO6007 cheatsheet (rebuilt, grouping bullets)
+\documentclass[a4paper,landscape]{article}
+\usepackage{xcolor}
+\usepackage[top=.6mm,bottom=3.4mm,left=4.8mm,right=4mm]{geometry}
+\usepackage{fontspec}
+\usepackage{newunicodechar}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=0pt,topsep=0pt, itemsep=0pt, parsep=0pt, label=\textbullet}
+\setlength{\columnsep}{7pt}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\defaultfontfeatures{Ligatures=TeX}
+\setsansfont{Verdana}
+\begin{document}
+\fontsize{5pt}{5pt}\selectfont
+\raggedright
+\begin{multicols}{7}
+
+\newcommand{\hlhighlight}[1]{%
+    \begingroup
+        \setlength{\fboxsep}{0pt}
+        \colorbox{yellow}{\strut\textbf{#1}}%
+    \endgroup
+}
+\definecolor{sectitlecolor}{HTML}{0050D0}
+\definecolor{conceptcolor}{HTML}{008B8B} % teal color hex refined
+\definecolor{procnamecolor}{HTML}{9B30FF}
+\definecolor{categorycolor}{HTML}{228B22}
+\newcommand{\sectitle}[1]{\textcolor{sectitlecolor}{\textbf{#1}}}
+\newcommand{\concept}[1]{\textcolor{conceptcolor}{\textbf{#1}}}
+\newcommand{\procname}[1]{\textcolor{procnamecolor}{\textbf{#1}}}
+\newcommand{\category}[1]{\textcolor{categorycolor}{\textbf{#1}}}
+\newcommand{\lbl}[1]{\textcolor{categorycolor}{\textbf{#1}}}
+\newcommand{\lblnb}[1]{\textcolor{categorycolor}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% INTRO / WEEK 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Introduction}
+
+\sectitle{What is a Project?}
+\begin{itemize}
+\item \concept{PMBOK6e:} ``A temporary endeavor undertaken to create a unique product, service, or result.''
+\end{itemize}
+
+\sectitle{Key Characteristics:}
+\begin{itemize}
+\item \concept{Temporary:} Clear start and end point; not an ongoing operation.
+\item \concept{Unique Outcome:} Produces something new (product, service, event, etc.).
+\item \concept{Specific Objectives:} Aims to meet particular goals, requirements, or solve a problem.
+\item \concept{Constraints:} Works within limitations of scope, time, cost, and resources.
+\end{itemize}
+
+\sectitle{Projects vs Operations}
+\begin{itemize}
+\item Projects = temporary and unique (change-focused).
+\item Operations = ongoing and repetitive (run the business).
+\end{itemize}
+
+\sectitle{IT Projects}
+\begin{itemize}
+\item Technology-focused initiatives aimed at delivering a digital solution, system, or service.
+\item Involve development, implementation, upgrade, or integration of IT systems.
+\item Can be diverse in size, complexity, products, application area, and resource requirements.
+\item Use diverse technologies that change rapidly; require specialized people.
+\end{itemize}
+
+\sectitle{Project Management}
+\begin{itemize}
+\item \concept{PMBOK6e:} Application of knowledge, skills, tools and techniques to project activities to meet requirements.
+\end{itemize}
+
+\sectitle{Key Elements (Constraints):}
+\begin{itemize}
+\item \concept{Scope:} What to achieve/deliverables.
+\item \concept{Time:} How long/deadlines.
+\item \concept{Cost:} Budget/resources.
+\item \concept{Quality:} Meeting standards?
+\item \concept{Risk:} What could go wrong?
+\item \concept{Communication:} Information sharing.
+\item \concept{Resources:} People, tools, technology.
+\end{itemize}
+
+\sectitle{Why IT Project Management is Critical?}
+\begin{itemize}
+\item Aligns technology with Business goals.
+\item Delivers value on time and within budget.
+\item Manages Complexity across teams.
+\item Avoids scope creep and missed deadlines.
+\item Reduces risks and improves accountability.
+\item Improves Communication.
+\item Handles change effectively.
+\item \concept{Consequences of no PM:} Scope Creep, Miscommunication, Missed deadlines, Budget blowouts, Technical Failures, Stakeholder dissatisfaction.
+\end{itemize}
+
+\sectitle{Skills for Project Management}
+\begin{itemize}
+\item \category{Core PM skills:} Planning \& Scheduling, Scope management, Risk management, Budgeting \& cost control, Quality management, Documentation and Reporting.
+\item \category{Soft skills:} Communication, Leadership, Conflict resolution, Negotiation, Decision making, Adaptability.
+\item \category{Technical skills:} PM methodologies, Tools (Jira, Trello, Asana), Reporting.
+\item \category{Strategic skills:} Stakeholder management, Business Acumen, Change management.
+\item \category{Bonus traits:} Detail-oriented but Big picture thinkers, Calm under pressure, Proactive problem solvers, Empathetic Team Leaders.
+\end{itemize}
+
+\sectitle{Triple Constraints of Project Management}
+\begin{itemize}
+\item \concept{Scope:} Work required (features, functions, tasks).
+\item \concept{Time:} Schedule or duration (deadlines, milestones).
+\item \concept{Cost:} Budget (resources, labor, tools).
+\item \concept{Interdependency:}
+\item Scope increase –> Time and/or Cost increase.
+\item Time reduced –> Cost increase or Scope decrease.
+\item Budget reduced –> Scope reduce.
+\end{itemize}
+
+\sectitle{Project Success}
+\begin{itemize}
+\item Meeting or exceeding defined objectives, expectations, and stakeholder satisfaction across key dimensions.
+\item Not just "on time, on budget", but delivering value.
+\item \concept{Dimensions:} Time, Cost, Scope, Quality, Stakeholder Satisfaction, Business Value, Team Performance, Sustainability, User adoption, Alignment with strategic goals, Long term operational impact, Risk management and flexibility.
+\item \concept{Misconceptions:} Finishing on time/budget is success (even if not usable/valuable); Meeting business goals is enough (ignoring team/stakeholders); All success is immediate (some impact is long-term).
+\end{itemize}
+
+\sectitle{Project vs Program vs Portfolio Management}
+\sectitle{Project Management (Tactical Execution):}
+\begin{itemize}
+\item \concept{Focus:} Specific output (product/service).
+\item \concept{Manager:} Project Manager.
+\item \concept{Constraints:} Scope, Time, Budget.
+\item \concept{Objective:} Deliver a successful project.
+\end{itemize}
+
+\sectitle{Program Management (Strategic Coordination):}
+\begin{itemize}
+\item Collection of related projects managed coordinately to achieve benefits not possible separately.
+\item \concept{Manager:} Program Manager.
+\item \concept{Focus:} Interdependencies, risks, strategic alignment.
+\item \concept{Objective:} Deliver business value across multiple projects.
+\end{itemize}
+
+\sectitle{Portfolio Management (Enterprise Alignment):}
+\begin{itemize}
+\item Collection of programs/projects grouped to meet strategic business goals.
+\item \concept{Manager:} Portfolio Manager or PMO.
+\item \concept{Focus:} Investment decisions, resource allocation, strategic prioritization.
+\item \concept{Objective:} Maximize value and alignment with organizational strategy.
+\end{itemize}
+
+\sectitle{Project Management Framework}
+\begin{itemize}
+\item Structured approach defining how projects are planned, executed, monitored, and completed.
+\item \concept{Components:} Project Lifecycle, Processes and Knowledge Areas, Tools and Templates, Methodologies.
+\item \concept{Why use:} Consistency, Reduces risk/increases predictability, Improves communication/accountability, Supports decision-making, Aligns with goals.
+\item \category{PMBOK Framework:} 10 Knowledge Areas, 5 Process Groups (Initiating, Planning, Executing, Monitoring \& Controlling, Closing).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 2 – METHODS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{PM Methodologies}
+
+\sectitle{Project Lifecycle}
+\begin{itemize}
+\item Structured sequence of phases a project goes through.
+\end{itemize}
+
+\sectitle{Phases:}
+\begin{itemize}
+\item \concept{Initiation:} Define at high level, evaluate feasibility. Output: Approved project.
+\item \concept{Planning:} Build comprehensive plan. Output: Approved PM Plan.
+\item \concept{Execution:} Perform work. Output: Deliverables.
+\item \concept{Monitoring \& Controlling:} Track performance, adjustments. Output: Status reports, corrections.
+\item \concept{Closure:} Wrap up, deliver results, reflect. Output: Final report, lessons learned.
+\end{itemize}
+
+\sectitle{Project Management Methodologies}
+\sectitle{Waterfall Model:}
+\begin{itemize}
+\item Linear, sequential. Each phase must complete before the next begins.
+\item \concept{Phases:} Requirements –> System Design –> Implementation –> Testing –> Deployment –> Maintenance.
+\item \category{Pros:} Simple, clear milestones, good for fixed scope/stable requirements, ideal for compliance-heavy projects.
+\item \category{Cons:} Inflexible to changes, difficult to go back, delayed testing finds late problems.
+\item \category{Best suited:} Stable requirements, regulatory/compliance projects, when documentation is critical.
+\end{itemize}
+
+\sectitle{Agile Methodology:}
+\begin{itemize}
+\item Flexible, iterative approach. Breaks project into small increments (sprints).
+\item \category{4 Key Values:}
+\item Individuals \& Interactions over processes and tools.
+\item Working Software over comprehensive documentation.
+\item Customer Collaboration over contract negotiation.
+\item Responding to Change over following a plan.
+\item \category{Best suited:} Evolving requirements, high uncertainty, need for rapid feedback.
+\end{itemize}
+
+\sectitle{Scrum:}
+\begin{itemize}
+\item Agile framework, time-boxed iterations (Sprints, 1-4 weeks).
+\item \concept{Roles:} Product Owner (features/backlog), Scrum Master (coach), Scrum Team (do work).
+\item \concept{Artifacts:} Product Backlog, Sprint Backlog, Increment.
+\item \concept{Events:} Sprint Planning, Daily Stand up, Sprint Review, Sprint Retrospective.
+\item \concept{Definition of Done (DoD):} Shared agreement on completion criteria.
+\item \concept{Sprint Goal:} Single, coherent objective for the sprint.
+\end{itemize}
+
+\sectitle{Kanban:}
+\begin{itemize}
+\item Visual workflow management, continuous delivery.
+\item \category{Key elements:}
+\item Kanban Board — Visual board that tracks tasks through stages (e.g., To Do –> Doing –> Done).
+\item Cards / User stories — Individual work items representing tasks or features.
+\item WIP (Work In Progress) Limits — Constraints on how many items can be in a column to avoid overload.
+\item Cycle Time — Time taken for a work item to move from start to finish.
+\item \category{Features:}
+\item Continuous flow of work rather than fixed-length iterations.
+\item No specific required roles — teams can adopt Kanban with existing structure.
+\item Work is pulled as capacity allows (pull-based system).
+\item Emphasis on visual management to identify bottlenecks and improve flow.
+\item \category{Best suited:} BAU/support work, continuous flow, service teams.
+\end{itemize}
+
+\sectitle{DevOps:}
+\begin{itemize}
+\item Integrates software development (Dev) and IT operations (Ops).
+\item \concept{Goal:} Shorten development lifecycle, increase deployment frequency, deliver high-quality continuously.
+\item \concept{Practices:} CI/CD, Automation, Infrastructure as Code (IaC), Monitoring.
+\item \concept{Benefits:} Accelerated delivery, Automation, Collaboration, Reliability.
+\end{itemize}
+
+\hlhighlight{Requirement Gathering}
+\begin{itemize}
+\item Identifying, collecting, and documenting stakeholder needs/expectations.
+\item \concept{Importance:} Meets stakeholder needs, Reduces scope creep/rework, Foundation for design/dev/test, Better planning/estimation.
+\item \concept{Techniques:} Interviews, Surveys/Questionnaires, Workshops, Observation, Document Analysis.
+\end{itemize}
+
+\sectitle{Requirement Types}
+\begin{itemize}
+\item Functional requirements (what the system should do).
+\item Non-functional requirements (performance, security, usability, reliability).
+\end{itemize}
+
+\sectitle{Common Requirement Issues}
+\begin{itemize}
+\item Ambiguous, conflicting, incomplete requirements –> risk of rework and scope creep.
+\end{itemize}
+
+\sectitle{Project Initiation / Defining}
+\begin{itemize}
+\item \concept{Purpose:} Clarity on what/why, Buy-in, Baseline.
+\item \concept{Activities:} Identify need, Define goals, High-level scope, Identify stakeholders, Appoint PM, Develop Project Charter, Budget/Timeline, Risk/Feasibility, Alignment.
+\item \category{Project Charter:} Formal document authorizing project and PM authority.
+\item \concept{Purpose:} Vision, Aligns stakeholders, Roadmap, Reference.
+\item \concept{Tools:} Expert Judgment, Business Case, Enterprise Environmental Factors, Organizational Process Assets.
+\item \concept{Content:} Title, Dates, Background, Objectives, Success Criteria, Milestones, Budget, Roles (Sponsor, PM, Team).
+\end{itemize}
+
+\sectitle{Stakeholder Identification \& Engagement:}
+\begin{itemize}
+\item Identify anyone impacting/impacted by project.
+\item Analyze (Power, Interest, Influence). Prioritize (Power/Interest Grid).
+\item Engage \& Communicate strategies.
+\item \concept{Challenges:} Unclear objectives, Lack of support, Poor engagement, Weak business case, Unrealistic constraints.
+\item \concept{Tools (Stakeholder processes):} stakeholder analysis, power–interest grid, stakeholder engagement strategies.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 3 – SCOPE & TIME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Scope Management}
+\begin{itemize}
+\item \category{Scope Management Plan:} Defines how scope is defined, validated, and controlled.
+\item \concept{Key Components:} Scope Statement, Management Approach, Requirement Collection, WBS, Validation Process, Control Process, Roles, Assumptions/Constraints.
+\end{itemize}
+
+\procname{6 Processes:}
+\begin{itemize}
+\item \lbl{Plan Scope Management:} Creating the plan.
+\item \lbl{Collect Requirements:} Determining stakeholder needs. \lbl{Techniques:} Interviews, Workshops, Surveys, Prototyping, Observation. \lbl{Output:} Requirements traceability matrix.
+\item \lbl{Define Scope:} Developing detailed description (deliverables, boundaries, acceptance criteria). \lbl{Output:} Project Scope Statement.
+\item \lbl{Create WBS (Work Breakdown Structure):} Decomposing deliverables into smaller components (Work Packages).
+\item \lbl{Validate Scope:} Formal acceptance of completed deliverables by customer/sponsor.
+\item \lbl{Control Scope:} Monitoring status and managing changes to scope baseline.
+\end{itemize}
+
+\sectitle{Tools by Scope Process}
+\begin{itemize}
+\item \lblnb{Plan Scope Mgmt}: expert judgment, templates, organizational process assets.
+\item \lblnb{Collect Requirements}: interviews, workshops, surveys, prototyping, observation, RTM.
+\item \lblnb{Define Scope}: expert judgment, product analysis, alternatives analysis.
+\item \lblnb{Create WBS}: decomposition, WBS templates, analogy, top-down/bottom-up, mind-mapping.
+\item \lblnb{Validate Scope}: inspections, reviews, walkthroughs.
+\item \lblnb{Control Scope}: variance analysis, change control system, trend analysis.
+\end{itemize}
+
+\sectitle{Scope Statement Details}
+\begin{itemize}
+\item Includes: Product scope description, Deliverables, Exclusions, Constraints, Assumptions, Success criteria.
+\end{itemize}
+
+\sectitle{Requirements Traceability Matrix (RTM)}
+\begin{itemize}
+\item Typical columns: ID, Description, Source, Priority, Acceptance Criteria, WBS Link, Test Case Link, Status.
+\end{itemize}
+
+\concept{Approaches:}
+\begin{itemize}
+\item Guidelines, Analogy, Top-Down, Bottom-Up, Mind-mapping.
+\end{itemize}
+
+\concept{Rules:}
+\begin{itemize}
+\item Unit of work in one place, sum of items below equals item above, one individual responsible, consistent with work performance.
+\end{itemize}
+
+\sectitle{Scope Management Issues}
+\begin{itemize}
+\item Scope creep, lack of stakeholder engagement, miscommunication, overambitious scope.
+\item Mitigation: Clear scope statement, RTM, stakeholder sign-offs, formal change control.
+\end{itemize}
+
+\hlhighlight{Schedule (Time) Management}
+\begin{itemize}
+\item Planning, developing, managing, executing, and controlling project schedule.
+\end{itemize}
+
+\procname{6 Processes:}
+\begin{itemize}
+\item \lbl{Plan Schedule Management:} Define policy/procedures.
+\item \lbl{Define Activities:} Break down WBS work packages into specific tasks. \lbl{Output:} Activity list, attributes, Milestone list.
+\item \lbl{Sequence Activities:} Determine logical order and dependencies.
+\item \lbl{Estimate Activity Durations:} Predict time required. \concept{Techniques:} Expert judgment, Analogous (historical data), Parametric (statistical), Bottom-up (detailed aggregation), Three-point (PERT).
+\item \lbl{Develop Schedule:} Integrate durations, sequences, resources.
+\item \lbl{Control Schedule:} Monitor progress, manage changes. Uses EVM, Variance Analysis (SV, SPI).
+\end{itemize}
+
+\sectitle{Tools by Schedule Process}
+\begin{itemize}
+\item \lblnb{Plan Schedule Mgmt}: expert judgment, templates, PMIS.
+\item \lblnb{Define Activities}: decomposition, rolling wave planning, templates.
+\item \lblnb{Sequence Activities}: network diagrams (AON/AOA/PDM), dependency types, leads \& lags.
+\item \lblnb{Estimate Durations}: expert judgment, analogous, parametric, bottom-up, 3-point/PERT.
+\item \lblnb{Develop Schedule}: CPM, Gantt chart, schedule compression (fast tracking, crashing), resource leveling, PMIS.
+\item \lblnb{Control Schedule}: EVM (SV, SPI), variance analysis, schedule forecasts, performance reviews.
+\end{itemize}
+
+\sectitle{Schedule Baseline}
+\begin{itemize}
+\item Approved version of the schedule used to track performance and calculate SV/SPI.
+\end{itemize}
+
+\sectitle{Network Diagrams}
+\begin{itemize}
+\item \lbl{AON (Activity on Node):} activities represented by nodes (boxes) and arrows show dependencies.
+\item \lbl{AOA (Activity on Arrow):} activities as arrows and nodes represent events; uses dummy activities.
+\item \lbl{PDM (Precedence Diagramming Method):} defines different dependency types.
+\item \concept{Dependency Types:} Finish-to-Start (FS), Start-to-Start (SS), Finish-to-Finish (FF), Start-to-Finish (SF).
+\item \lbl{Lead Time:} Accelerate schedule (overlap).
+\item \lbl{Lag Time:} Delay/waiting period.
+\end{itemize}
+
+\sectitle{Dependency Examples}
+\begin{itemize}
+\item FS: Coding must finish before Testing starts.
+\item SS: UI design and UX research can start in parallel.
+\item FF: Deployment and rollback preparations finish together.
+\item SF: Rare, e.g. maintenance finishes when new system starts.
+\end{itemize}
+
+\sectitle{Lead/Lag Examples}
+\begin{itemize}
+\item Lead: Testing starts 2 days before Coding finishes.
+\item Lag: Wait 3 days after concrete pour before inspection.
+\end{itemize}
+
+\sectitle{Estimating Activity Durations}
+\begin{itemize}
+\item \concept{Techniques:} Expert judgment, Analogous, Parametric, Bottom-up, Three-point (PERT).
+\item \lbl{PERT} Formula: (Optimistic + 4 * Most Likely + Pessimistic) / 6.
+\end{itemize}
+
+\sectitle{Schedule Tools / Techniques}
+\begin{itemize}
+\item \lbl{CPM (Critical Path Method):} Identifies longest sequence of dependent activities (shortest project duration). Zero float/slack.
+\item \lbl{Gantt Chart:} Visual bar chart of schedule.
+\item \lbl{Schedule Compression:} Fast Tracking (parallel - risk), Crashing (add resources - cost).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 4 – COST
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Cost Management Plan}
+
+\sectitle{Project Cost Management}
+\begin{itemize}
+\item Process of estimating, budgeting, and controlling costs.
+\end{itemize}
+
+\concept{Types of Costs:}
+\begin{itemize}
+\item \lbl{Tangible vs Intangible:} Easy vs difficult to measure in \$.
+\item \lbl{Direct vs Indirect:} Directly related to project vs overhead/admin.
+\item \lbl{Sunk:} Money already spent (ignore for future decisions).
+\end{itemize}
+
+\concept{Reserves:}
+\begin{itemize}
+\item \lbl{Contingency:} For known unknowns (in cost baseline).
+\item \lbl{Management:} For unknown unknowns (added to baseline for total budget).
+\end{itemize}
+
+\procname{4 Processes}
+\begin{itemize}
+\item \lbl{Plan Cost Management:} Define policies/procedures.
+\item \lbl{Estimate Costs:} Approximation of resources needed.
+\item \lbl{Determine Budget:} Aggregating estimates to authorized cost baseline.
+\item \lbl{Control Costs:} Monitor status, update costs, manage baseline changes.
+\end{itemize}
+
+\sectitle{Tools by Cost Process}
+\begin{itemize}
+\item \lblnb{Plan Cost Mgmt}: expert judgment, analytical techniques, cost management plan templates.
+\item \lblnb{Estimate Costs}: analogous, parametric, bottom-up, 3-point, expert judgment, reserve analysis.
+\item \lblnb{Determine Budget}: cost aggregation (sum WBS), reserve analysis, historical information, funding limit reconciliation.
+\item \lblnb{Control Costs}: EVM (CV, SV, CPI, SPI, EAC, ETC), variance analysis, performance reviews, forecasting.
+\end{itemize}
+
+\sectitle{Estimate Accuracy}
+\begin{itemize}
+\item Rough Order of Magnitude (ROM): approx. -25\% to +75\%.
+\item Definitive estimate: approx. -10\% to +10\%.
+\end{itemize}
+
+\sectitle{Cost Estimation Techniques}
+\begin{itemize}
+\item Analogous, Parametric, Bottom-up, Three-point, Expert judgment.
+\end{itemize}
+
+\sectitle{IT Cost Estimation Notes}
+\begin{itemize}
+\item Influenced by requirement clarity, tech uncertainty, integration complexity, team skill.
+\item Common errors: ignoring training, maintenance, security/compliance, integration, vendor lock-in.
+\item Bottom-up example: 40h * \$100/h = \$4000.
+\end{itemize}
+
+\sectitle{Earned Value Management (EVM)}
+\begin{itemize}
+\item Integrates scope, schedule, and cost to measure performance.
+\item \concept{Core Components:}
+\item \lbl{Planned Value (PV):} Budgeted cost of work scheduled.
+\item \lbl{Earned Value (EV):} Budgeted cost of work actually completed.
+\item \lbl{Actual Cost (AC):} Real cost incurred.
+\end{itemize}
+
+\concept{Variance Analysis:}
+\begin{itemize}
+\item \lbl{Cost Variance (CV):} EV - AC. \\(+ Under budget, - Over budget).
+\item \lbl{Schedule Variance (SV):} EV - PV. \\(+ Ahead, - Behind).
+\end{itemize}
+
+\concept{Performance Indexes:}
+\begin{itemize}
+\item \lbl{Cost Performance Index (CPI):} EV / AC. \\(>1 Efficient, <1 Overrun).
+\item \lbl{Schedule Performance Index (SPI):} EV / PV. \\(>1 Ahead, <1 Behind).
+\end{itemize}
+
+\concept{Forecasting:}
+\begin{itemize}
+	\item \lbl{Estimate at Completion (EAC):} Expected total cost based on current trends. BAC / CPI.
+	\item \lbl{Estimate to Complete (ETC):} Remaining cost to finish. Common forms: ETC = EAC - AC.
+	\item \lbl{Budget at Completion (BAC):} Total planned budget from cost baseline.
+\end{itemize}
+
+\sectitle{Traditional vs Agile Cost Management}
+\begin{itemize}
+\item \lbl{Traditional:} Fixed budget/baseline upfront, Detailed estimation (WBS), EVM works well.
+\item \lbl{Agile:} Budget per sprint/release, Rolling-wave estimates, EVM difficult (scope changes), Focus on value (story points).
+\item \lbl{Practices:} Fund increments, Burn charts, Agile/Lightweight EVM, Contingency reserves.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 5 – QUALITY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Quality Management}
+
+\sectitle{Quality}
+\begin{itemize}
+\item Degree to which inherent characteristics fulfill requirements.
+\item \lbl{Dimensions in IT:} Functionality, Reliability, Performance, Usability, Maintenance, Security.
+\item \lbl{Perspectives:} Conformance to Requirements, Fitness for Use, Customer Satisfaction.
+\end{itemize}
+
+\sectitle{Project Quality Management}
+\begin{itemize}
+\item Managing quality of deliverables (product) and processes.
+\item \lbl{Principles:} Customer focus, Prevention over Inspection, Continuous Improvement, Fact-based decision making.
+\end{itemize}
+
+\procname{3 Processes}
+\begin{itemize}
+\item \lbl{Plan Quality Management:} Identify standards/requirements, how to comply.
+\item \lbl{Manage Quality (QA):} Translating plan into executable activities (Process-focused).
+\item \lbl{Control Quality (QC):} Monitoring deliverables meet standards (Product-focused).
+\end{itemize}
+
+\sectitle{Tools by Quality Process}
+\begin{itemize}
+\item \lblnb{Plan QM}: cost–benefit analysis, cost of quality, benchmarking, flowcharts, quality metrics, standards (ISO).
+\item \lblnb{Manage Quality (QA)}: quality audits, process analysis, design of experiments, checklists, PDCA.
+\item \lblnb{Control Quality (QC)}: inspection, 7QC tools (control chart, Pareto, fishbone, histogram, checksheet, scatter, flowchart), sampling.
+\end{itemize}
+
+\sectitle{Verification vs Validation}
+\begin{itemize}
+\item Verification: Are we building the product right? (meets specs).
+\item Validation: Are we building the right product? (meets user needs).
+\end{itemize}
+
+\sectitle{Cost of Quality (COQ)}
+\begin{itemize}
+\item Prevention costs, Appraisal costs, Internal failure costs, External failure costs.
+\end{itemize}
+
+\sectitle{Quality Standards \& Frameworks}
+\begin{itemize}
+\item ISO 9001 (Quality management systems).
+\item ISO/IEC 27001 (Information security).
+\item CMMI (Process maturity).
+\end{itemize}
+
+\sectitle{Agile Quality Perspective}
+\begin{itemize}
+\item Built-in quality, continuous testing, whole-team responsibility.
+\end{itemize}
+
+\sectitle{Tools and Techniques}
+\begin{itemize}
+\item \lbl{Cost-Benefit Analysis:} Cost vs Benefits (ROI).
+\item \lbl{Cause and Effect (Fishbone) Diagram:} Root cause analysis.
+\item \lbl{Control Chart:} Process performance over time vs limits.
+\item \lbl{Checksheet:} Data collection tally.
+\item \lbl{Flowcharts:} Process mapping.
+\item \lbl{Scatter Diagram:} Correlation.
+\item \lbl{Histogram:} Frequency distribution.
+\item \lbl{Pareto Chart:} 80/20 rule (80\% problems from 20\% causes).
+\end{itemize}
+
+\sectitle{PDCA Cycle}
+\begin{itemize}
+\item Plan –> Do –> Check –> Act (continuous improvement loop).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 6 – RESOURCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Resource Management}
+
+\sectitle{Project Resource Management}
+\begin{itemize}
+\item Identifying, acquiring, and managing resources (human and physical).
+\item \lbl{Importance:} Specialized roles, Shared resources, Planning lead times.
+\end{itemize}
+
+\procname{6 Processes}
+\begin{itemize}
+\item \lbl{Plan Resource Management:} Define estimating, acquiring, managing resources.
+\item \lbl{Estimate Activity Resources:} Determine types/quantities needed.
+\item \lbl{Acquire Resources:} Obtaining team/physical resources.
+\item \lbl{Develop Team:} Improving competencies, interaction, environment.
+\item \lbl{Manage Team:} Tracking performance, feedback, resolving issues.
+\item \lbl{Control Resources:} Monitoring physical resource usage vs plan.
+\end{itemize}
+
+\sectitle{Tools by Resource Process}
+\begin{itemize}
+\item \lblnb{Plan Resource Mgmt}: RACI, RBS, org charts, resource management plan.
+\item \lblnb{Estimate Activity Resources}: expert judgment, bottom-up estimating, RBS, alternatives analysis.
+\item \lblnb{Acquire Resources}: negotiation, pre-assignment, acquisition from functional managers.
+\item \lblnb{Develop Team}: training, team-building, Tuckman model, motivation theories (Maslow, Herzberg), recognition \& rewards.
+\item \lblnb{Manage Team}: leadership styles, conflict management styles, performance appraisals, feedback.
+\item \lblnb{Control Resources}: resource histogram, resource leveling, inspections, variance analysis.
+\end{itemize}
+
+\sectitle{Resource Structures \& Analysis}
+\begin{itemize}
+\item \concept{RBS:} Resource Breakdown Structure (Human, Equipment, Materials, etc.).
+\item Resource histogram: shows workload/utilisation over time.
+\item Resource leveling: adjust task timing to remove over-allocation (may extend schedule).
+\end{itemize}
+
+\hlhighlight{Human Resources}
+\begin{itemize}
+\item \lbl{Motivation:} Intrinsic vs Extrinsic.
+\item \concept{Tuckman's Model:}(Group development) Forming, Storming, Norming, Performing, Adjourning.
+\item \concept{RACI:} Responsible (does work), Accountable (owns result), Consulted (provides input), Informed (kept updated).
+\end{itemize}
+
+\sectitle{Motivation Theories}
+\begin{itemize}
+\item \lbl{Maslow:} physiological –> safety –> belonging –> esteem –> self-actualisation.
+\item \lbl{Herzberg:} hygiene factors (salary, policy, conditions) vs motivators (recognition, achievement, growth).
+\end{itemize}
+
+\sectitle{Conflict Management Styles}
+\begin{itemize}
+\item Avoid, Accommodate, Compete, Compromise, Collaborate.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 7 – RISK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Risk Management}
+
+\sectitle{Project Risk Management}
+\begin{itemize}
+\item Managing uncertain events (positive/negative) affecting objectives.
+\item \lbl{Types:} Threats (Negative), Opportunities (Positive).
+\item \lbl{Categories:} Market, Financial, Technology, People, Structure/Process.
+\end{itemize}
+
+\procname{7 Processes (Based on slides structure)}
+\begin{itemize}
+\item \lbl{Plan Risk Management:} Define approach.
+\item \lbl{Identify Risks:} Determining risks/characteristics. \lbl{Output:} Risk Register.
+\item \lbl{Perform Qualitative Risk Analysis:} Prioritizing by Probability x Impact.
+\item \lbl{Perform Quantitative Risk Analysis:} Numerical analysis of effect.
+\item \lbl{Plan Risk Responses:} Strategies.
+\item \lbl{Implement Risk Responses / Monitor:} Track and apply responses.
+\item \lbl{Monitor and Control Risks:} Tracking, monitoring, identifying new, evaluating effectiveness.
+\end{itemize}
+
+\sectitle{Tools by Risk Process}
+\begin{itemize}
+\item \lblnb{Plan Risk Mgmt}: risk management plan templates, expert judgment, stakeholder analysis.
+\item \lblnb{Identify Risks}: brainstorming, interviews, checklists, SWOT, risk register, RBS.
+\item \lblnb{Qualitative RA}: probability–impact matrix, risk categorisation, risk urgency, risk ranking.
+\item \lblnb{Quantitative RA}: EMV, decision trees, Monte Carlo simulation, sensitivity analysis.
+\item \lblnb{Plan Risk Responses}: strategy selection (avoid/mitigate/transfer/accept; exploit/enhance/share/accept), contingency planning.
+\item \lblnb{Implement/Monitor Risks}: risk register updates, risk audits, risk reviews, risk burndown chart (Agile), issue logs.
+\end{itemize}
+
+\sectitle{Risk Response Strategies}
+\begin{itemize}
+\item \concept{Threats:} Avoid, Mitigate, Transfer, Accept, Escalate.
+\item \concept{Opportunities:} Exploit, Enhance, Share, Accept, Escalate.
+\end{itemize}
+
+\sectitle{Risk Appetite \& Utility}
+\begin{itemize}
+\item Risk-averse, risk-neutral, risk-seeking.
+\item \lbl{Utility curves}: Averse (concave), Neutral (linear), Seeking (convex).
+\end{itemize}
+
+\sectitle{Risk Structures}
+\begin{itemize}
+\item \concept{Risk Register:} Document recording risks, causes, owners, responses; living document.
+\item \concept{RBS:} Risk Breakdown Structure (Technical, People, Process, Organizational, External).
+\end{itemize}
+
+\sectitle{Qualitative vs Quantitative Analysis}
+\begin{itemize}
+\item Qualitative: probability–impact matrix, risk ranking.
+\item Quantitative: EMV, Monte Carlo simulation, decision trees.
+\end{itemize}
+
+\sectitle{Monte Carlo \& EMV}
+\begin{itemize}
+\item Monte Carlo: assign distributions to uncertain variables; simulate many iterations; get probability distribution of outcomes.
+\item EMV (Expected Monetary Value): sum (Probability * Outcome).
+\end{itemize}
+
+\sectitle{Agile Risk Management}
+\begin{itemize}
+\item Iterative reviews, Risk-based backlog prioritization, Risk Burn-Down Charts, Collaborative ownership.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 8 – PROCUREMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Procurement Management}
+
+\sectitle{Project Procurement Management}
+\begin{itemize}
+\item Acquiring goods, services, results from outside project team.
+\end{itemize}
+
+\procname{3 Processes:}
+\begin{itemize}
+\item \lbl{Plan Procurement Management:} Documenting decisions, approach, sellers.
+\item \lbl{Conduct Procurements:} Obtaining responses, selecting sellers, awarding contracts.
+\item \lbl{Control Procurements:} Managing relationships, monitoring performance, changes.
+\end{itemize}
+
+\sectitle{Tools by Procurement Process}
+\begin{itemize}
+\item \lblnb{Plan Procurement}: make-or-buy analysis, market research, SOW development, contract type selection, expert judgment.
+\item \lblnb{Conduct Procurements}: RFP/RFQ/RFI, bidder conferences, weighted scoring models, advertising, proposal evaluation techniques.
+\item \lblnb{Control Procurements}: SLA monitoring, performance reviews, contract change control system, inspections \& audits, claims administration, payment systems.
+\end{itemize}
+
+\sectitle{Documents \& Concepts}
+\begin{itemize}
+\item \lbl{Make-or-Buy Analysis:} Decide internal vs external.
+\item \lbl{Statement of Work (SOW):} Description of work ("what and how").
+\item \lbl{RFP:} (Proposal - solution focused), \lbl{RFQ:} (Quotation - price focused).
+\item \lbl{RFI:} Request for Information (high-level capabilities).
+\item Contract, SLA (Service Level Agreement) as key legal/ performance documents.
+\end{itemize}
+
+\sectitle{Contract Types}
+\begin{itemize}
+\item Fixed-price: vendor bears more cost risk.
+\item Time \& Materials (T\&M): buyer bears cost risk; flexible scope.
+\item Cost-reimbursable: buyer reimburses costs plus fee; shared risk.
+\end{itemize}
+
+\sectitle{Vendor Selection \& Evaluation}
+\begin{itemize}
+\item Weighted scoring model: criteria + weights + vendor scores –> total score.
+\item Criteria: cost, technical capability, security, SLA terms, experience, cultural fit.
+\end{itemize}
+
+\sectitle{Contract Administration}
+\begin{itemize}
+\item Monitor performance vs SLA, manage contract changes, handle disputes, accept deliverables.
+\end{itemize}
+
+\hlhighlight{Outsourcing}
+\begin{itemize}
+\item Hiring external vendor to perform project tasks/deliverables instead of doing them in-house.
+\item Used for cost reduction, access to expertise, faster delivery.
+\end{itemize}
+
+\sectitle{Why Outsource?}
+\begin{itemize}
+\item Cost efficiency (labour/infrastructure savings).
+\item Access specialised skills (cloud, AI, security).
+\item Focus on core business.
+\item Risk sharing with vendor.
+\end{itemize}
+
+\sectitle{Types of Outsourcing}
+\begin{itemize}
+\item Complete project outsourcing (LC full handle).
+\item Partial outsourcing (specific components/tasks).
+\item BPO (non-core processes: helpdesk, payroll).
+\item IT/Technical outsourcing (cloud, SW dev, cybersecurity).
+\end{itemize}
+
+\sectitle{Outsourcing Models}
+\begin{itemize}
+\item Onshore (same country), Nearshore (near timezone), Offshore (low-cost distant).
+\item Hybrid (mix internal/external), Multisource (multiple vendors).
+\item Insourcing = work done internally.
+\end{itemize}
+
+\sectitle{Benefits}
+\begin{itemize}
+\item Lower cost, global talent, faster delivery.
+\item Reduce internal workload; flexibility; access new tech.
+\end{itemize}
+
+\sectitle{Disadvantages}
+\begin{itemize}
+\item Communication/time-zone issues; quality risks.
+\item Security/privacy concerns; vendor dependency.
+\item Hidden coordination/contract costs.
+\end{itemize}
+
+\sectitle{Governance of Outsourcing}
+\begin{itemize}
+\item Ensures outsourced work aligns with objectives, meets quality, and manages risk.
+\item Key: strategic alignment, contract management, clear roles/responsibilities.
+\end{itemize}
+
+\sectitle{Integration with Procurement}
+\begin{itemize}
+\item Aligns outsourced work with project goals; reduces schedule/cost/quality risks.
+\item Link contracts to milestones, use shared PM tools, communicate continuously, manage risks proactively.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 9 – LEADERSHIP & GOV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hlhighlight{Leadership}
+\begin{itemize}
+\item Inspiring/guiding team,stakeholders to objectives
+\item \lbl{vs Management:} People/Vision/Influence vs Process/Tasks/Control.
+\item \lbl{Styles:} Transformational, Transactional, Autocratic, Laissez-Faire, Adaptive/Agile, Participative, Democratic
+\end{itemize}
+
+\sectitle{Leader vs Manager}
+\begin{itemize}
+\item Leader: vision, change, people focus.
+\item Manager: execution, process, control focus.
+\end{itemize}
+
+\sectitle{Adaptive / Situational Leadership}
+\begin{itemize}
+\item Adjusts style based on team maturity, complexity, and context.
+\end{itemize}
+
+\hlhighlight{Communication Management}
+\begin{itemize}
+\item 3 Processes:
+\item \lbl{Plan:} Needs, methods, roles.
+\item \lbl{Manage:} Distribute, retrieve info.
+\item \lbl{Monitor:} Ensure effectiveness.
+\end{itemize}
+
+\sectitle{Tools by Communication Process}
+\begin{itemize}
+\item \lblnb{Plan Communications}: communication requirements analysis, stakeholder analysis, choice of channels (email, meetings, dashboards), comms plan templates.
+\item \lblnb{Manage Communications}: RAG reports, dashboards, RAID logs, meetings, presentations, collaboration tools.
+\item \lblnb{Monitor Communications}: feedback, observations, stakeholder engagement assessments, surveys.
+\end{itemize}
+
+\sectitle{Communication Plan Contents}
+\begin{itemize}
+\item Stakeholder, information needs, format, frequency, owner.
+\item Tools: RAG reports, dashboards, RAID logs.
+\end{itemize}
+
+\hlhighlight{Governance}
+\begin{itemize}
+\item Framework of policies, roles, decision-making structures.
+\item \lbl{Structure:} Steering Committees (Strategic guidance), PMO (Standardization/Support), Project Sponsors (Champion/Accountability).
+\end{itemize}
+
+\sectitle{Governance Mechanisms}
+\begin{itemize}
+\item Stage/phase-gate reviews, escalation paths, KPIs, audits, formal reporting structures.
+\end{itemize}
+
+\sectitle{Steering Committee Responsibilities}
+\begin{itemize}
+\item Approve business case/charter, set strategic objectives, approve major changes, resolve escalated issues, ensure benefits realisation.
+\end{itemize}
+
+\sectitle{PMOffice Functions}
+\begin{itemize}
+\item Standardise methods/templates, provide training, support project managers, portfolio reporting, tool support.
+\end{itemize}
+
+\hlhighlight{Alignment}
+\begin{itemize}
+\item \concept{Definition:} Goals, activities, and outcomes of a project are in harmony with the business, stakeholder and organisation.
+\item \concept{Why it matters:} Maximizes Business Value, Reduces Wasted Effort, Improves Stakeholder Satisfaction, Enhances Decision-Making, Boosts Adoption
+\item \concept{How to achieve:} Map deliverables to strategic objectives, engage stakeholders early, embed alignment checks in governance (stage gates/steering committee), use KPIs/OKRs, and review alignment regularly.
+\end{itemize}
+\sectitle{Alignment Frameworks}
+\begin{itemize}
+\item Strategic Alignment Model (SAM) – align business and IT strategy.
+\item Balanced Scorecard – financial, customer, internal process, learning/growth perspectives.
+\item COBIT – IT governance framework.
+\item TOGAF – enterprise architecture framework (align IT architecture with business).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 10 – INTEGRATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Integration Management}
+
+\sectitle{Project Integration Management}
+\begin{itemize}
+\item Coordination of all processes/activities. "Glue".
+\item Unique knowledge area that balances and integrates all others (scope, time, cost, quality, etc.).
+\end{itemize}
+
+\procname{7 Processes:}
+\begin{itemize}
+\item \lbl{Develop Project Charter:} Authorization.
+\item \lbl{Develop Project Management Plan:} Consolidate subsidiary plans.
+\item \lbl{Direct and Manage Project Work:} Execute.
+\item \lbl{Manage Project Knowledge:} Lessons learned.
+\item \lbl{Monitor and Control Project Work:} Track performance.
+\item \lbl{Perform Integrated Change Control:} Review/approve changes (CCB).
+\item \lbl{Close Project or Phase:} Finalize.
+\end{itemize}
+
+\sectitle{Tools by Integration Process}
+\begin{itemize}
+\item \lblnb{Develop Charter}: expert judgment, facilitation workshops, business case, EEFs/OPAs.
+\item \lblnb{Develop PM Plan}: expert judgment, meetings, PMIS, facilitation techniques.
+\item \lblnb{Direct \& Manage Work}: PMIS, issue log, meetings, change requests.
+\item \lblnb{Manage Project Knowledge}: lessons learned register, knowledge repositories, communities of practice.
+\item \lblnb{Monitor \& Control Work}: data analysis (trend/variance), PMIS, performance reports.
+\item \lblnb{Integrated Change Control}: change control system, CCB meetings, impact analysis.
+\item \lblnb{Close Project/Phase}: document analysis, lessons learned meeting, final product/phase acceptance.
+\end{itemize}
+
+\sectitle{Key Tools \& Artefacts}
+\begin{itemize}
+\item \lbl{Project Management Information Systems (PMIS):} e.g., MS Project, Jira, Asana, Trello — supports scheduling, resource management, issue tracking, and reporting.
+\item \lbl{Dashboards:} Real-time views of progress, risks, costs, and resource utilisation (visual RAG indicators, burn-downs, KPI widgets).
+\item \lbl{Change Control Boards (CCB):} Formal groups that review, approve/reject, and prioritise change requests; coordinate impact analysis and communication.
+\item \lbl{Documentation \& Knowledge Repositories:} Wikis, Confluence, SharePoint for storing lessons learned, templates, SOPs, decision logs, and best practices.
+\end{itemize}
+
+\sectitle{Project Management Plan Contents}
+\begin{itemize}
+\item Integrates all subsidiary plans (scope, schedule, cost, quality, resource, comms, risk, procurement, stakeholder) plus baselines and configuration management plan.
+\end{itemize}
+
+\sectitle{Integrated Change Control Flow}
+\begin{itemize}
+\item Change request –> impact analysis (scope/time/cost/risk) –> CCB decision –> update baselines –> communicate.
+\end{itemize}
+
+\sectitle{Knowledge Management}
+\begin{itemize}
+\item Explicit knowledge (documents, databases) vs Tacit knowledge (experience, skills).
+\item Lessons learned register updated throughout; becomes organisational process asset (OPA).
+\end{itemize}
+
+\hlhighlight{Uniqueness of IT Projects}
+\begin{itemize}
+\item \concept{IT projects:} Complex, rapidly changing, stakeholder-heavy, and high-risk — require iterative delivery, continuous integration/testing, and active risk/requirements management to avoid costly rework.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 11/12 – ITSM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{ITSM and Processes}
+
+\sectitle{IT Service Management (ITSM)}
+\begin{itemize}
+\item Policies/processes to design, deliver, manage, and improve IT services.
+\item \lbl{Goals:} Business alignment, Quality, Efficiency, Customer Satisfaction, Stability.
+\end{itemize}
+
+\sectitle{Products vs Services}
+\begin{itemize}
+\item \lbl{Product:} Tangible output (e.g. app, device) with clear ownership.
+\item \lbl{Service:} Ongoing delivery that enables outcomes without customer owning all risks/costs.
+\end{itemize}
+
+\sectitle{Service Relationship Model}
+\begin{itemize}
+\item \lbl{Service Provider:} Organisation delivering the service.
+\item \lbl{Service Consumer:} Users/customers receiving value.
+\item \lbl{Co-creation of value:} Value realised only via interaction of provider + consumer (use, adoption, correct configuration).
+\end{itemize}
+
+\sectitle{Role of Information in Competitive Advantage}
+
+Information is a strategic resource; enables efficiency, innovation, decision quality, customer loyalty, and trust.
+\begin{itemize}
+\item \lbl{Operational}: Streamlines processes; reduces cost — Efficiency
+\item \lbl{Strategic}: Guides competitive positioning — Advantage
+\item \lbl{Innovative}: Enables new products/services — Differentiation
+\item \lbl{Managerial}: Supports data-driven decisions — Accuracy
+\item \lbl{Customer}: Enhances UX; personalised services — Loyalty
+\item \lbl{Governance}: Ensures ethical, compliant, secure use — Trust
+\end{itemize}
+
+\sectitle{ITIL v4.0}
+\begin{itemize}
+\item Framework for modern ITSM; flexible and value-driven.
+\item \lbl{Service:} Means of enabling value co-creation by facilitating outcomes without customer managing specific costs/risks.
+\item \lbl{Value:} Perceived benefits, utility and worth (subjective, contextual).
+\item \lbl{Service Value System (SVS):} All components working together:
+\begin{itemize}
+  \item Guiding Principles
+  \item Governance
+  \item Service Value Chain (SVC)
+  \item Practices (34)
+  \item Continual Improvement
+\end{itemize}
+\end{itemize}
+
+\sectitle{Guiding Principles (7)}
+\begin{itemize}
+\item Focus on value
+\item Start where you are
+\item Progress iteratively with feedback
+\item Collaborate and promote visibility
+\item Think and work holistically
+\item Keep it simple and practical
+\item Optimize and automate
+\end{itemize}
+
+\sectitle{Guiding Principle Examples}
+\begin{itemize}
+\item \lbl{Focus on value:} Measure outcomes from user/business perspective (uptime, satisfaction, adoption).
+\item \lbl{Start where you are:} Reuse existing tools/data/processes where effective instead of rebuilding everything.
+\item \lbl{Progress iteratively:} Deliver improvements in small increments with rapid feedback.
+\item \lbl{Think holistically:} Consider end-to-end value streams (people, process, tech, partners).
+\end{itemize}
+
+\sectitle{Practices}
+\begin{itemize}
+\item \concept{Practice:} Set of organisational resources (people, processes, information, tools, partners) designed to perform work/achieve an objective.
+\item \lbl{Categories (34 total):}
+\begin{itemize}
+  \item \category{General Mgmt (14):} Strategy, Info Security, Risk, Knowledge, Project Mgmt, Relationship Mgmt, etc.
+  \item \category{Service Mgmt (17):} Incident, Problem, Change Enablement, Service Level Mgmt, Service Desk, Service Request, Asset Mgmt, Continuity, etc.
+  \item \category{Technical Mgmt (3):} Deployment, Infrastructure \& Platform, Software Development \& Mgmt.
+\end{itemize}
+\end{itemize}
+
+\sectitle{Key Service Practices (Ops Focus)}
+\begin{itemize}
+\item \lbl{Incident Management:} Restore normal service ASAP, minimising business impact (does \emph{not} necessarily fix root cause).
+\item \lbl{Problem Management:} Identify/analyse root causes of incidents to prevent recurrence; maintain \emph{Known Error} records and workarounds.
+\item \lbl{Change Enablement:} Ensure changes are assessed, approved, scheduled and implemented with minimal risk.
+\begin{itemize}
+  \item \lbl{Change types:} Standard (pre-approved, low risk, repeatable), Normal (assessed, may need CAB), Emergency (fast-track for urgent high-priority).
+\end{itemize}
+\item \lbl{Service Level Management (SLM):} Define, negotiate, monitor and report on SLAs (availability, response time, resolution time).
+\item \lbl{Service Desk:} SPOC between users and IT; logs incidents/requests, resolves or escalates, keeps users informed.
+\item \lbl{Continual Improvement:} Identify and implement improvements across services, practices and value streams.
+\end{itemize}
+
+\sectitle{Additional Service Practices Detail}
+\begin{itemize}
+\item \lbl{Service Request Management:}
+\begin{itemize}
+  \item Handle low-risk, standard requests (access, info, password reset).
+  \item \concept{Diff vs Incident:} Incident = unplanned interruption/issue; Service Request = planned, pre-approved ask.
+\end{itemize}
+\item \lbl{Knowledge Management:}
+\begin{itemize}
+  \item Create/maintain knowledge base articles, FAQs, troubleshooting guides.
+  \item Support Known Error Database (KEDB) for faster incident/problem resolution.
+\end{itemize}
+\item \lbl{Service Continuity Management:} Ensure services can be recovered after major disruptions (links with DR/BCP).
+\end{itemize}
+
+\sectitle{Continual Improvement – Simple Cycle}
+\begin{itemize}
+\item Identify improvement opportunity (data from incidents, problems, SLAs, feedback).
+\item Assess and prioritise (impact vs effort/value).
+\item Plan change (define target, owner, actions, measures).
+\item Implement improvement.
+\item Measure and review results; standardise successful changes.
+\end{itemize}
+
+\sectitle{Service Value Chain (SVC)}
+\begin{itemize}
+\item Operating model converting demand to value via 6 interconnected activities:
+\item Plan, Improve, Engage, Design \& Transition, Obtain/Build, Deliver \& Support.
+\item Each \emph{value stream} uses a tailored combination of these activities.
+\end{itemize}
+
+\sectitle{Value Streams}
+\begin{itemize}
+\item Specific paths through SVC activities for a given outcome.
+\item \lbl{Example – Incident Resolution:} Engage (log) –> Deliver/Support (diagnose) –> Obtain/Build (fix) –> Design \& Transition (deploy) –> Deliver/Support (verify/close) –> Improve (analyse trends).
+\end{itemize}
+
+\sectitle{ITIL-aligned Tools (e.g. ServiceNow)}
+\begin{itemize}
+\item Cloud ITSM platforms automate and integrate practices:
+\item Incident, Problem, Change, Service Request workflows.
+\item SLA tracking, dashboards, reporting.
+\item CMDB / asset/configuration records.
+\item Knowledge base and self-service portal.
+\end{itemize}
+
+\sectitle{Automation \& AI in ITSM}
+\begin{itemize}
+\item \lbl{Goals:} Efficiency, speed, consistency, predictive capability.
+\item \lbl{Applications:}
+\begin{itemize}
+  \item Chatbots/self-service for common incidents/requests.
+  \item Auto-routing and prioritisation based on impact/urgency.
+  \item Predictive analytics for recurring issues (Problem Mgmt).
+  \item AI-assisted risk assessment for Changes.
+  \item AIOps for monitoring and event correlation.
+\end{itemize}
+\item \lbl{Risks:} Data quality, bias, over-automation of human-critical decisions, loss of transparency; need clear governance and oversight.
+\end{itemize}
+
+\sectitle{Challenges in ITIL Adoption}
+\begin{itemize}
+\item Cultural and organisational resistance (shift from reactive to proactive).
+\item Complexity and scope of ITIL 4 (34 practices – risk of “doing everything at once”).
+\item Lack of executive sponsorship, funding or governance support.
+\item Over-focus on process compliance instead of real value/experience.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Practice Question Bank
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hlhighlight{Practice Question Bank}
+\begin{itemize}
+  \item \lbl{1. Purpose of Integration Management:} Ensures all processes, deliverables, code modules, databases, and third-party tools align toward business goals.
+  \item \lbl{2. Handling Scope Creep:} Apply change control, assess cost/time/resource impacts, communicate impacts, approve only if aligned with business value.
+  \item \lbl{3. Why WBS is Used:} Breaks project into smaller tasks (frontend, backend, DB, testing) so responsibilities and progress tracking are clear.
+  \item \lbl{4. IT Risk Example:} Vendor server downtime –> mitigate via redundancy, backup hosting, multi-zone cloud deployment.
+  \item \lbl{5. QA Role:} Ensures deliverables meet requirements through testing, reviews, CI/CD pipelines.
+  \item \lbl{6. Schedule Tools Benefit (CPM):} Identify tasks that cannot slip without delaying the project (critical path).
+  \item \lbl{7. Stakeholder Mgmt Complexity:} Many groups with different technical literacy and goals –> alignment is harder.
+  \item \lbl{8. Communication Importance:} Prevents misunderstanding, aligns technical/business teams, enables transparency and trust.
+\end{itemize}
+
+\hlhighlight{Practice Questions \& Answers}
+
+\sectitle{IT Project Characteristics}
+\begin{itemize}
+\item \textbf{Define project; two distinguishing IT features}
+\item A project is a temporary endeavour producing a unique product or service; IT projects are technology-intensive and experience higher uncertainty and rapid change.
+\item \textbf{Why PM is essential for NovaSys}
+\item PM ensures scope, schedule, and quality integration; provides structure for cross-border collaboration and stakeholder communication.
+\item \textbf{Early action to align distributed teams}
+\item Establish a shared collaboration plan – for example, an online RACI matrix or kickoff workshop clarifying roles, deliverables, and reporting cadence.
+\end{itemize}
+
+\sectitle{Project Lifecycle and Integration}
+\begin{itemize}
+\item \textbf{Five lifecycle phases}
+\item Initiating –> Planning –> Executing –> Monitoring \& Controlling –> Closing, mapped to corresponding PMBOK process groups.
+\item \textbf{Role of integration \& communication}
+\item Integration aligns objectives, deliverables, and stakeholders; communication ensures visibility and coordination among teams.
+\item \textbf{Governance to capture lessons learned}
+\item Mandate a closure checklist requiring sign-off of a "lessons-learned register" reviewed by the PMO before project close.
+\end{itemize}
+
+\sectitle{Choosing the Right Methodology}
+\begin{itemize}
+\item \textbf{Waterfall vs Agile (key differences)}
+\item Waterfall = linear, fixed scope, heavy documentation, limited stakeholder iteration; Agile = incremental, flexible scope, continuous collaboration.
+\item \textbf{Why Hybrid suits BrightEdge}
+\item Hybrid allows stable architecture under Waterfall while accommodating evolving reports via Agile sprints.
+\item \textbf{Hybrid integration risk \& mitigation}
+\item Risk = coordination failure between sequential and iterative teams; mitigate by defining clear sprint boundaries and shared configuration-management standards.
+\end{itemize}
+
+\sectitle{Scope Creep and Change Control}
+\begin{itemize}
+\item \textbf{Scope definition \& baseline purpose}
+\item Scope defines approved deliverables; the baseline documents agreed scope, cost, and schedule to control change.
+\item \textbf{Formal change-assessment mechanism}
+\item Use a Change Control Board (CCB) and a structured change-request form assessing time–cost–quality impacts.
+\item \textbf{Stakeholder communication strategy}
+\item Hold a stakeholder workshop using SBAR (Situation-Background-Assessment-Recommendation) to present quantified trade-offs before approval.
+\end{itemize}
+
+\sectitle{Scheduling Delays and Recovery}
+\begin{itemize}
+\item \textbf{Schedule baseline purpose}
+\item The baseline is the approved reference for performance tracking and variance analysis.
+\item \textbf{Common dependency types with examples}
+\item Finish-to-Start (coding –> testing) and Start-to-Start (training –> pilot setup).
+\item \textbf{Corrective action to realign timeline}
+\item Apply fast-tracking (overlapping configuration + training) or crashing after cost–benefit analysis to recover schedule.
+\end{itemize}
+
+\sectitle{Stakeholder Engagement and Communication}
+\begin{itemize}
+\item \textbf{Power–Interest classification}
+\item Finance = high power / low interest –> keep satisfied; HR = low power / high interest –> keep informed.
+\item \textbf{Engagement approaches}
+\item Finance –> executive briefings focusing on ROI; HR –> interactive sessions and feedback loops.
+\item \textbf{Tool/dashboard for transparency}
+\item Use an integrated project dashboard (Microsoft Teams or Power BI) displaying sprint progress and issue logs.
+\end{itemize}
+
+\sectitle{Cost Estimation and Budget Control}
+\begin{itemize}
+\item \textbf{ROM vs definitive estimates}
+\item ROM = ±50\% accuracy, used during initiation; definitive = ±10\% accuracy, used after scope baseline.
+\item \textbf{Bottom-up estimating approach}
+\item Break work packages into smaller activities, estimate individual costs, and aggregate for precision.
+\item \textbf{Actions to maintain budget}
+\item Value engineering and scope trade-offs; apply Earned Value Management to track CPI/SPI and trigger early corrections.
+\end{itemize}
+
+\sectitle{Earned Value Analysis}
+\begin{itemize}
+\item \textbf{Compute CPI and SPI}
+\item CPI = EV/AC = 600/700 = 0.86; SPI = EV/PV = 600/900 = 0.67.
+\item \textbf{Interpretation of indices}
+\item With CPI < 1 and SPI < 1, the project is over budget and behind schedule.
+\item \textbf{Recommended management action}
+\item Review performance variances, identify causes, and prepare a corrective plan to improve cost and schedule efficiency before considering any re-baselining.
+\end{itemize}
+
+\sectitle{Quality Planning and Assurance}
+\begin{itemize}
+\item \textbf{Quality planning importance}
+\item Quality planning sets standards and procedures to meet stakeholder requirements; vital for compliance and trust.
+\item \textbf{Key QA activities}
+\item Regular process audits and peer reviews of training datasets.
+\item \textbf{Metric for data accuracy improvement}
+\item Defect density or accuracy rate = (correct classifications / total cases) × 100\%.
+\end{itemize}
+
+\sectitle{Resource Allocation and Team Dynamics}
+\begin{itemize}
+\item \textbf{RACI for resource clarity}
+\item RACI clarifies who is Responsible, Accountable, Consulted, and Informed for each task, avoiding duplication.
+\item \textbf{Workload balancing strategies}
+\item Use capacity-planning tools and rotate critical tasks via resource levelling.
+\item \textbf{Motivational approach for cross-cultural teams}
+\item Recognise team achievements publicly and offer shared virtual rewards to build trust and ownership.
+\end{itemize}
+
+\sectitle{Communication Breakdown and Stakeholder Expectations}
+\begin{itemize}
+\item \textbf{Causes of communication failure}
+\item Unclear requirements and lack of feedback loops.
+\item \textbf{Preventive role of communication plan}
+\item A communication plan defines information needs, formats, frequency, and responsibilities for each stakeholder group.
+\item \textbf{Tool and reporting technique}
+\item Tool – Microsoft Teams or JIRA; reporting technique – weekly dashboards or RAG status reports.
+\end{itemize}
+
+\sectitle{Conflict and Resource Management}
+\begin{itemize}
+\item \textbf{Likely conflict type and cause}
+\item Task-based conflict caused by role ambiguity and competing priorities.
+\item \textbf{Conflict-resolution techniques}
+\item Collaborating (Win–Win) and compromising (Find middle ground).
+\item \textbf{Preventive measure}
+\item Define clear role descriptions in a RACI matrix and hold regular alignment meetings.
+\end{itemize}
+
+\sectitle{Risk Identification and Assessment}
+\begin{itemize}
+\item \textbf{Purpose and content of risk register}
+\item A risk register lists identified risks, causes, probability, impact, owners, and planned responses.
+\item \textbf{Qualitative vs quantitative analysis}
+\item Qualitative = subjective ranking using probability/impact matrix; quantitative = numerical estimation of exposure (e.g., Monte Carlo).
+\item \textbf{High-priority risks and responses}
+\item (1) Compliance change –> mitigate by early gap assessment and controls. (2) API instability –> transfer via redundant vendor or service agreement with penalties.
+\end{itemize}
+
+\sectitle{Risk Response Planning and Monitoring}
+\begin{itemize}
+\item \textbf{Objectives of risk response plan}
+\item To specify actions, owners, and timing for each major risk, reducing threats and exploiting opportunities.
+\item \textbf{Role of contingency and fallback plans}
+\item Contingency plan = actions if risk occurs; fallback = backup if contingency fails.
+\item \textbf{Metric for risk effectiveness}
+\item Track "open high-severity risks" per month or \% of risks with active response plans.
+\end{itemize}
+
+\sectitle{Procurement Strategy and Contract Selection}
+\begin{itemize}
+\item \textbf{Fixed-price vs T\&M (risk \& cost)}
+\item Fixed-price = vendor bears cost risk; T\&M = buyer bears cost risk but flexible for change.
+\item \textbf{Factors for contract choice}
+\item Requirement clarity and vendor maturity.
+\item \textbf{Recommended model for CyberLink}
+\item T\&M is better for evolving requirements; include rate caps and clear change-control clauses.
+\end{itemize}
+
+\sectitle{Procurement Planning and Bid Evaluation}
+\begin{itemize}
+\item \textbf{Procurement planning steps}
+\item Define needs –> prepare procurement documents –> conduct bidding –> evaluate –> award –> manage contract.
+\item \textbf{Weighted scoring model benefit}
+\item Weighted model assigns scores to criteria (SLA, cost, security) for objective comparison.
+\item \textbf{Top-weight criteria}
+\item Data security and SLA uptime guarantees.
+\end{itemize}
+
+\sectitle{Contract Administration and Vendor Performance}
+\begin{itemize}
+\item \textbf{Contract administration activities}
+\item Monitor deliverables against SLA and manage contract changes.
+\item \textbf{Change control under fixed-price}
+\item All scope changes require formal change request and cost/schedule review before approval.
+\item \textbf{Negotiation approach for disputes}
+\item Use principled negotiation (focus on interests not positions); agree on shared facts before commercial adjustment.
+\end{itemize}
+
+\sectitle{Risk and Procurement Integration}
+\begin{itemize}
+\item \textbf{Why procurement risks belong in risk register}
+\item Supplier delays and contract breaches directly impact schedule and budget; they need visibility in risk tracking.
+\item \textbf{Risk transfer techniques}
+\item Insurance and performance bonds / penalty clauses.
+\item \textbf{Vendor-risk monitoring method}
+\item Conduct monthly vendor scorecards or joint risk reviews with procurement and PMO.
+\end{itemize}
+
+\sectitle{Leadership Styles and Team Motivation}
+\begin{itemize}
+\item \textbf{Leadership style comparison}
+\item Directive = close control / clarity; Participative = shared decisions; Transformational = inspire vision \& creativity.
+\item \textbf{Best style for TechFusion}
+\item Transformational-participative blend fits knowledge projects—empowers experts yet keeps focus.
+\item \textbf{Immediate motivational technique}
+\item Implement recognition boards or innovation awards; celebrate sprint achievements to rebuild engagement.
+\end{itemize}
+
+\sectitle{Governance Frameworks and Decision Escalation}
+\begin{itemize}
+\item \textbf{IT governance purpose}
+\item Governance = structures \& processes for decision-making, ensuring projects align with strategic goals and compliance.
+\item \textbf{Key governance components}
+\item Steering committee with defined authority; clear reporting hierarchy with decision thresholds.
+\item \textbf{Escalation mechanism}
+\item Use tiered escalation matrix—PM –> Program Manager –> CIO—triggered by cost/scope variance limits.
+\end{itemize}
+
+\sectitle{Ethical Leadership and Stakeholder Trust}
+\begin{itemize}
+\item \textbf{Ethical dilemma}
+\item Pressure to misrepresent data integrity for schedule compliance.
+\item \textbf{Ethical leadership guidance}
+\item Ethical leaders prioritise honesty, transparency, and stakeholder trust; follow organisational code of conduct.
+\item \textbf{Immediate steps for resolution}
+\item Escalate to governance board, document issue, halt release until compliance achieved; protect whistle-blower team members.
+\end{itemize}
+
+\sectitle{Integration Across Knowledge Areas}
+\begin{itemize}
+\item \textbf{Purpose of Integration Management}
+\item Integration Management ensures all knowledge areas (scope, cost, risk, quality) work coherently toward project objectives.
+\item \textbf{Tools for cross-project coordination}
+\item Use integrated master schedule (IMS) and dependency matrix.
+\item \textbf{Reporting artefact for integrated performance}
+\item Develop a consolidated project dashboard combining CPI/SPI from all sub-projects.
+\end{itemize}
+
+\sectitle{Change Control in Integration Management}
+\begin{itemize}
+\item \textbf{Change-control process}
+\item Receive –> Evaluate –> Approve / Reject –> Update plans –> Communicate –> Implement.
+\item \textbf{Importance of impact analysis}
+\item Prevents cascading cost/schedule issues; maintains baseline integrity.
+\item \textbf{Tool to track approved changes}
+\item Use integrated change-log system (e.g., JIRA workflow or PMIS dashboard).
+\end{itemize}
+
+\sectitle{Transitioning from Projects to Services}
+\begin{itemize}
+\item \textbf{Project vs service management}
+\item Project management = temporary delivery of change; Service management = continuous value delivery post-implementation.
+\item \textbf{Actions for smooth transition}
+\item Conduct formal service-transition handover workshop and update service catalogue with support contacts/SLA ownership.
+\item \textbf{KPI for successful transition}
+\item "First-Contact Resolution Rate" or "\% of tickets handled by service desk without escalation."
+\end{itemize}
+
+\sectitle{ITIL v4 Guiding Principles and Service Value System}
+\begin{itemize}
+\item \textbf{Purpose of the Service Value System}
+\item SVS = framework ensuring organisation components (workflows, governance, practices) co-create value through services.
+\item \textbf{Guiding principles impact}
+\item "Focus on value" aligns decisions to customer outcomes; "Collaborate and promote visibility" breaks silos via shared dashboards.
+\item \textbf{Measure improvement-culture maturity}
+\item Run quarterly CSAT surveys or track \# of improvement initiatives implemented per quarter.
+\end{itemize}
+
+\sectitle{Incident and Problem Management in Practice}
+\begin{itemize}
+\item \textbf{Incident vs problem management}
+\item Incident = restore service ASAP; Problem = identify and eliminate root cause.
+\item \textbf{Value of linking practices}
+\item Linking ensures temporary fixes trigger permanent solutions and knowledge-base updates.
+\item \textbf{Metric for long-term stability}
+\item Mean Time Between Incidents (MTBI) or repeated-incident rate.
+\end{itemize}
+
+\sectitle{Change Enablement and Risk Control}
+\begin{itemize}
+\item \textbf{Purpose of change enablement}
+\item To balance need for change with risk control by evaluating, authorising, and documenting changes.
+\item \textbf{Risk-reduction techniques in change enablement}
+\item CAB (Change Advisory Board) review and post-implementation evaluation.
+\item \textbf{Reporting tool for change transparency}
+\item Implement ServiceNow or JIRA Change Calendar for live visibility of change status.
+\end{itemize}
+
+\sectitle{Continual Improvement and Automation}
+\begin{itemize}
+\item \textbf{How automation supports continual improvement}
+\item Automation reduces manual repetition, enabling staff to focus on analysis and service enhancement.
+\item \textbf{Automation risks and mitigations}
+\item Risks = resistance to change \& AI bias; mitigate via early engagement and algorithm testing.
+\item \textbf{Training initiative for transition}
+\item Launch an "AI for Service Professionals" training program linking new skills to career progression.
+\end{itemize}
+
+\sectitle{Linking Project Management and ITSM}
+\begin{itemize}
+\item \textbf{PM vs ITSM objectives}
+\item PM = temporary change delivery; ITSM = ongoing service stability; together they complete the value chain.
+\item \textbf{Integration points between PM and ITIL}
+\item Integration via release \& deployment planning and shared change-management boards.
+\item \textbf{Governance mechanism for alignment}
+\item Establish joint PMO-Service Governance Forum with shared KPIs (availability vs project benefits).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% WEEK 13 – EXAM TIPS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Exam Review Notes}
+
+\sectitle{Answer Structure}
+\begin{itemize}
+\item Define key concept(s) clearly.
+\item Explain mechanism/why it matters.
+\item Apply to scenario (case details, trade-offs).
+\item Conclude with recommendation/summary.
+\end{itemize}
+
+\sectitle{Good Exam Practice}
+\begin{itemize}
+\item \concept{Read carefully}
+\item \concept{State assumptions}
+\item \concept{Plan your answer}
+\item \concept{Apply theory to the scenario}
+\item \concept{Discuss trade-offs}
+\item \concept{Show evidence}
+\item \concept{Be structured}
+\item \concept{Timebox and review}
+\item \concept{Conclude with recommendation}
+\end{itemize}
+
+\end{multicols}
+\end{document}
