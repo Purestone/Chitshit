@@ -1,0 +1,312 @@
+\documentclass[a4paper, landscape]{article}
+
+% --- GEOMETRY & PAGE LAYOUT ---
+% Set landscape mode with very small margins to maximize space
+\usepackage[a4paper, landscape, top=1cm, bottom=1cm, left=0.75cm, right=0.75cm]{geometry}
+
+% --- FONT & LANGUAGE (BABEL) ---
+% Use fontspec for modern font handling (requires XeLaTeX/LuaLaTeX)
+\usepackage{iftex}
+% Use Unicode font features only for XeTeX or LuaTeX; fall back to pdfLaTeX safe fonts otherwise
+\ifPDFTeX
+  % Fallback for pdfLaTeX (no fontspec)
+  \usepackage[T1]{fontenc}
+  \usepackage[english]{babel}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  % Use babel for language settings (only with Unicode engines)
+  \usepackage[english, bidi=basic, provide=*]{babel}
+  \babelprovide[import, onchar=ids fonts]{english}
+  % Prefer Noto Sans if available, otherwise fallback to Latin Modern or system fonts
+  \IfFontExistsTF{Noto Sans}{\setsansfont{Noto Sans}}{%
+    \IfFontExistsTF{Latin Modern Sans}{\setsansfont{Latin Modern Sans}}{\setsansfont{Arial}}%
+  }
+  \IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}}{%
+    \IfFontExistsTF{Latin Modern Mono}{\setmonofont{Latin Modern Mono}}{\setmonofont{Courier New}}%
+  }
+  % Use sans-serif as the default family for compact layout
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% --- PACKAGES ---
+\usepackage{multicol}      % For 5 columns
+\usepackage{amsmath}       % For math
+\usepackage{amssymb}       % For math symbols (like \rightarrow)
+\usepackage{booktabs}      % For the new table
+\usepackage{parskip}       % To control paragraph spacing
+\setlength{\parskip}{1pt}  % Minimal spacing between paragraphs
+\setlength{\parindent}{0pt} % No paragraph indentation
+\usepackage[dvipsnames]{xcolor} % Added for coloring
+
+% --- CUSTOM COMMANDS FOR COMPACT LAYOUT ---
+% Command for main topics, adds a small vertical break
+\newcommand{\topic}[1]{\par\medskip\textbf{#1}\par}
+% Command for subtopics
+\newcommand{\subtopic}[1]{\par\textbf{#1}}
+% Command for code/keywords
+\newcommand{\code}[1]{\texttt{#1}}
+% Command for math
+\newcommand{\mathsym}[1]{$#1$}
+
+% --- APPLY STYLING ---
+\definecolor{highlightcolor}{gray}{0.9} % Light gray for highlight
+\renewcommand{\topic}[1]{\par\medskip\noindent\colorbox{highlightcolor}{\parbox{\dimexpr\columnwidth-2\fboxsep\relax}{\textbf{#1}}}\par}
+\renewcommand{\subtopic}[1]{\par\textbf{\color{blue}{#1}}} % Blue for subtitles
+
+% --- DOCUMENT ---
+\begin{document}
+% Remove all page numbering, headers, and footers
+\pagestyle{empty}
+
+% Set font to 5pt with 6pt line spacing (leading)
+% This is extremely small, as requested.
+\fontsize{5}{6}\selectfont
+
+% Begin the 5-column layout
+\begin{multicols}{5}
+
+% --- COLUMN 1 ---
+
+\topic{1. Data Science Introduction (W1)}
+\subtopic{Definition:} Data Scientists build intelligent systems to derive knowledge from data.
+\subtopic{CRISP-DM Workflow:} Cross Industry Standard Process for Data Mining. 
+\par 1. Business Understanding (Define objectives, success criteria).
+\par 2. Data Understanding (Collect, describe, explore data, check quality).
+\par 3. Data Preparation (Select, clean, integrate, transform, construct data).
+\par 4. Modeling (Select technique, build model, assess model).
+\par 5. Evaluation (Validate model, review process, check business success).
+\par 6. Deployment (Plan deployment, monitor, generate report).
+\subtopic{Core Data Scientist Skills:}
+\par\textit{Math \& Statistics:} Machine learning, statistical modeling.
+\par\textit{Programming \& Database:} CS fundamentals, Python/R, SQL.
+\par\textit{Domain Knowledge \& Soft Skills:} Curious, problem solver, collaborative.
+\par\textit{Communication \& Visualization:} Story telling, visual art design.
+
+\topic{2. Data Exploration \& Cleaning (W2, W3)}
+\subtopic{Data Types (W2):}
+\par\textit{Nominal:} Categories, no order. Properties: Distinctness (\mathsym{=, \neq}). (e.g., zip codes).
+\par\textit{Ordinal:} Categories with order. Properties: Distinctness, Order (\mathsym{<, >}). (e.g., grades).
+\par\textit{Interval:} Ordered, equal intervals, no true zero. Properties: Distinctness, Order, Meaningful Differences (\mathsym{+, -}). (e.g., Celsius).
+\par\textit{Ratio:} Ordered, equal intervals, true zero. Properties: All 4 (\mathsym{+, -, \times, \div}). (e.g., Kelvin).
+\subtopic{Descriptive Statistics (W2):}
+\par\textit{Central Tendency:}
+\par Mode (Nominal+): Most frequent.
+\par Median (Ordinal+): Middle value.
+\par Mean (Interval+): Average. \mathsym{\mu = \frac{\sum X_{i}}{N}}.
+\par\textit{Dispersion:}
+\par Range (Ordinal+): Max - Min.
+\par IQR (Ordinal+): \mathsym{Q_3 - Q_1}.
+\par Variance (Interval+): \mathsym{\sigma^2 = \frac{\sum(X_{i}-\mu)^{2}}{N-1}}.
+\par Std. Dev. (Interval+): \mathsym{\sigma = \sqrt{\text{variance}}}.
+\subtopic{Exploration Tools (W2, W3):}
+\par\textit{\code{Pivot Tables} (W2):} Summarize data by calculating stats (count, avg) over sub-populations.
+\par\textit{\code{Pandas} (W3):} \code{DataFrame} object. \code{.read\_csv()}, \code{.head()}, \code{.describe()}, \code{.value\_counts()}, \code{.groupby()}, \code{.fillna()}, \code{.dropna()}, \code{.astype()}.
+\par\textit{\code{Matplotlib} (W3):} Python plotting.
+\subtopic{Data Cleaning (W3):}
+\par\textit{Type Conversion:} \code{pd.to\_numeric()}, \code{pd.to\_datetime()}. Use \code{.astype()} to convert.
+\par\textit{Handling \code{NaN} (Missing):} Replace values with \code{np.NaN} (Not a Number) or \code{np.NaT} (Not a Time).
+\subtopic{Visualization (W2, W3):}
+\par\textit{Histogram (W2, W3):} Understand distributions of ordinal, interval, ratio data.
+\par\textit{Bar chart (W2, W3):} Compare category counts for nominal data.
+\par\textit{Scatter plot (W2, W3):} View relationship between 2 ratio/interval variables.
+\par\textit{Box plots (W3):} Summarize data based on 5 numbers: Median (Q2), Q1 (25th percentile), Q3 (75th percentile), Lower fence (\mathsym{Q1 - 1.5 \times IQR}), Upper fence (\mathsym{Q3 + 1.5 \times IQR}). Outliers are values outside fences.
+\subtopic{Text Data (W3):}
+\par\textit{Tokenizing:} Splitting text into words/tokens.
+\par\textit{Stop Words:} Removing common, uninformative words (e.g., 'the', 'is', 'a').
+\par\textit{Correlation (W3):} \code{scipy.stats} \code{pearsonr} (normal), \code{spearmanr} (ratio/ordinal), \code{kendallstau} (ordinal).
+
+\topic{3. Data Storage \& Querying (W4, W5)}
+\subtopic{Relational Databases (W4):}
+\par\textit{Relation:} Named, 2D table of data (rows/tuples, columns/attributes).
+\par\textit{Schema:} Describes relation name, column names, and data types.
+\par\textit{Primary Key (PK):} Unique, minimal identifier for a tuple (e.g., \code{sid}).
+\par\textit{Foreign Key (FK):} Attribute(s) that refer to a PK in another relation, creating a link.
+\subtopic{SQL DDL (W4):} Data Definition Language.
+\par\textit{\code{CREATE TABLE}:} Defines a new table's columns and types.
+\par\textit{Constraints:} \code{NOT NULL}, \code{CHECK}, \code{UNIQUE} (candidate key), \code{PRIMARY KEY}, \code{FOREIGN KEY}.
+\subtopic{SQL DML (W4):} Data Manipulation Language.
+\par \code{INSERT INTO ... VALUES ...}
+\par \code{UPDATE ... SET ... WHERE ...}
+\par \code{DELETE FROM ... WHERE ...}
+\subtopic{SQL Querying (W5):}
+\par \code{SELECT} (cols), \code{FROM} (table), \code{WHERE} (filter rows), \code{ORDER BY} (sort), \code{LIMIT} (n rows).
+\par \code{SELECT DISTINCT} to force elimination of duplicates.
+\subtopic{Advanced SQL (W5):}
+\par\textit{JOINs:} Combine tables. \code{FROM Station JOIN Organisation ON orgcode = code}. Also \code{USING (col\_name)} or \code{NATURAL JOIN}. [Image of SQL Join Venn diagram]
+\par\textit{Aggregation (W5, W13):} \code{COUNT(*)}, \code{MIN(attr)}, \code{MAX(attr)}, \code{AVG(attr)}, \code{SUM(attr)}, \code{MODE() WITHIN GROUP (ORDER BY attr)}, \code{PERCENTILE\_DISC(0.5) WITHIN GROUP (ORDER BY attr)} (median).
+\par\textit{\code{GROUP BY}:} Partition relation into groups based on attribute values.
+\par\textit{\code{HAVING}:} Filters groups *after* grouping (WHERE filters rows *before*).
+\par\textit{Handling \code{NULL} (W5):} Unknown value. Uses 3-valued logic (TRUE, FALSE, UNKNOWN). \mathsym{5 < \text{NULL}} is UNKNOWN. Use \code{IS NULL} or \code{IS NOT NULL}.
+
+% --- COLUMN 2 ---
+
+\topic{4. Data Modeling \& Warehousing (W4)}
+\subtopic{ETL (W4):} \textit{Extract} (get data from source), \textit{Transform} (clean/reshape/join), \textit{Load} (put into warehouse).
+\subtopic{Python DB Access (W4):} \code{psycopg2} library. \code{conn = psycopg2.connect(...)}, \code{cur = conn.cursor()}, \code{cur.execute(sql, args)}, \code{conn.commit()}, \code{cur.fetchall()}.
+\subtopic{Database Types (W4):}
+\par\textit{OLTP (Online Transactional):} For apps. Normalized. Fast writes/updates.
+\par\textit{OLAP (Online Analytical):} For analysis. Denormalized. Fast reads/aggregations.
+\subtopic{Data Warehouse Schemas (W4):}
+\par\textit{Fact Table:} Central table with numeric measures (e.g., \code{sales\_amt}).
+\par\textit{Dimension Tables:} Link to fact table via FKs. Hold context/categories (e.g., \code{Time}, \code{Product}).
+\par\textit{Star Schema:} Central fact table linked to dimension tables. 
+\par\textit{Snowflake Schema:} Star schema where dimensions are normalized. [Image of Snowflake schema diagram]
+\par\textit{Fact Constellation (W4):} Multiple fact tables share dimension tables.
+
+\topic{5. Hypothesis Testing \& Model Eval (W6, W10)}
+\subtopic{Study Design (W6):}
+\par\textit{Observational:} Measure/survey, no intervention (e.g., poll). Can show correlation.
+\par\textit{Experimental:} Apply treatment, manipulate variables (e.g., A/B test). Control/treatment groups. Can show causation.
+\subtopic{Hypothesis Testing (W6):}
+\par\textit{Null Hypothesis (\mathsym{H_0}):} Assumption of "no effect" (e.g., \mathsym{\mu_A = \mu_B}).
+\par\textit{Alternative Hypothesis (\mathsym{H_A}):} What you test for (e.g., \mathsym{\mu_A \neq \mu_B}).
+\par\textit{p-value:} \mathsym{P(\text{observed or more extreme outcome} | H_0 \text{ true})}. Small p-value (\mathsym{< \alpha}) \mathsym{\to} reject \mathsym{H_0}.
+\par\textit{Type I Error (\mathsym{\alpha}):} Reject true \mathsym{H_0} (false positive).
+\par\textit{Type II Error (\mathsym{\beta}):} Fail to reject false \mathsym{H_0} (false negative).
+\subtopic{Statistical Tests (W6):}
+\par
+\renewcommand{\arraystretch}{0.9} % Tighter line spacing for table
+\begin{tabular}{@{}llll@{}}
+\toprule
+Test & Purpose & Type & \begin{tabular}{@{}l@{}}Non-Param\\Equiv.\end{tabular} \\
+\midrule
+Unpaired t & 2 ind. means & Param. & \begin{tabular}{@{}l@{}}Mann-Whit.\\U\end{tabular} \\
+Paired t & 2 paired means & Param. & Wilcoxon \\
+ANOVA & 3+ ind. means & Param. & \begin{tabular}{@{}l@{}}Kruskall-Wal.\\H\end{tabular} \\
+\bottomrule
+\end{tabular}
+\renewcommand{\arraystretch}{1.0} % Reset
+\subtopic{Classification Metrics (W6):} From Confusion Matrix (TP, TN, FP, FN). [Image of Confusion matrix]
+\par\textit{Accuracy:} \mathsym{\frac{TP+TN}{N}}. Overall correct.
+\par\textit{Precision:} \mathsym{\frac{TP}{TP+FP}}. \% of correct positive predictions.
+\par\textit{Recall:} \mathsym{\frac{TP}{TP+FN}}. \% of actual positives found.
+\par\textit{F1-Score:} \mathsym{2 \frac{Prec \cdot Rec}{Prec + Rec}}. Harmonic mean of P \& R.
+\subtopic{Validation (W6, W10):}
+\par\textit{Cross-validation (W6):} Split data K times (K-folds), train on K-1, test on 1. Avg. scores. 
+\par\textit{Bias-Variance Tradeoff (W10):} \textit{Bias} (underfit, simple model) vs. \textit{Variance} (overfit, complex model). Goal is to find model complexity that minimizes generalization error. 
+
+% --- COLUMN 3 ---
+
+\topic{6. Unsupervised: Association Rule Mining (W7)}
+\subtopic{Core Concepts (W7):}
+\par\textit{Itemset:} A collection of one or more items.
+\par\textit{Support (s):} Frequency of itemset. \mathsym{s(X) = \frac{\sigma(X)}{|T|}} (\mathsym{\sigma} = \text{count}).
+\par\textit{Confidence (c):} Strength of rule. \mathsym{c(X \to Y) = \frac{\sigma(X \cup Y)}{\sigma(X)}}.
+\subtopic{Goal (W7):} Find all rules with \mathsym{s \ge \text{min\_sup}} and \mathsym{c \ge \text{min\_conf}}.
+\subtopic{Apriori Algorithm (W7):} Uses "anti-monotone property": if an itemset is infrequent, all its supersets are also infrequent. 
+\par 1. Find frequent 1-itemsets.
+\par 2. Generate candidate k-itemsets from frequent (k-1)-itemsets.
+\par 3. Prune candidates using anti-monotone property.
+\par 4. Repeat.
+\par\textit{Pros/Cons:} Easy to implement but slow on large datasets (repeated scans).
+\subtopic{FP-Growth Algorithm (W7):} Faster alternative.
+\par 1. Scan DB, find frequent items (L).
+\par 2. Build Frequent-Pattern tree (FP-tree), a compressed DB. 
+\par 3. Mine tree recursively by building conditional pattern bases and conditional FP-trees. Avoids candidate generation.
+\par\textit{Pros/Cons:} Faster than Apriori (no candidate gen), compact structure, but complex to implement.
+
+\topic{7. Unsupervised: Clustering (W8)}
+\subtopic{Goal (W8):} Group similar objects. Minimize \textit{intra-cluster} (within-group) distance, maximize \textit{inter-cluster} (between-group) distance.
+\subtopic{Distance Metrics (W8):}
+\par Minkowski: \mathsym{d(i,j)=\sqrt[q]{\sum_{k=1}^{p}|x_{ik}-x_{jk}|^{q}}}.
+\par Euclidean: \mathsym{q=2}. \mathsym{d(i,j)=\sqrt{\sum_{k=1}^{p}|x_{ik}-x_{jk}|^{2}}}.
+\par Manhattan: \mathsym{q=1}. \mathsym{d(i,j)=\sum_{k=1}^{p}|x_{ik}-x_{jk}|}.
+\subtopic{K-Means Clustering (W8):} \textit{Partitional}. [Image of K-means clustering steps]
+\par 1. Select K points as initial centroids.
+\par 2. \textit{Assign:} Form K clusters by assigning points to closest centroid.
+\par 3. \textit{Update:} Recompute centroid of each cluster (as mean).
+\par 4. Repeat 2-3 until centroids don't change.
+\par\textit{Pros/Cons:} Efficient \mathsym{O(n)}, simple. Sensitive to K, outliers, initial centroids. Assumes spherical clusters.
+\subtopic{Hierarchical Clustering (W8):} \textit{Agglomerative} ("bottom-up").
+\par 1. Start with each object in its own cluster.
+\par 2. Find closest pair of clusters and merge them.
+\par 3. Recompute distances.
+\par 4. Repeat 2-3 until one cluster remains. Creates a \textit{dendrogram}. 
+\par \textit{Linkage}: \textit{Single} (min dist), \textit{Complete} (max dist), \textit{Average}.
+\par\textit{Pros/Cons:} No need to choose K, visual dendrogram. Slow \mathsym{O(n^2)} or \mathsym{O(n^3)}, sensitive to noise.
+\subtopic{Evaluation (W8):}
+\par\textit{External Index:} Match cluster labels to external class labels.
+\par \textit{Homogeneity:} Each cluster has members of a single class.
+\par \textit{Completeness:} All members of a class are in one cluster.
+\par \textit{V-measure:} Harmonic mean of homogeneity \& completeness.
+\par\textit{Internal Index:} Goodness of cluster structure (no external labels).
+\par \textit{Sum of Squared Error (SSE):} \mathsym{SSE=\sum_{i=1}^{K}\sum_{x\in C_{i}}dist^{2}(m_{i},x)}. Measures compactness. Lower is better. Used in "elbow method" to find K.
+\par \textit{Silhouette Coefficient:} For one point: \mathsym{a}=avg dist to points in same cluster. \mathsym{b}=avg dist to points in next nearest cluster. \mathsym{s = 1 - a/b} if \mathsym{a < b}; \mathsym{s = b/a - 1} if \mathsym{a \ge b}. Value from -1 to 1 (1 is best).
+\par\textit{Relative Index:} Compare two different clusterings.
+
+% --- COLUMN 4 ---
+
+\topic{8. Unsupervised: Dimensionality Reduction (W8)}
+\subtopic{Goal (W8):} Transform data from high-D to low-D, preserving info. Fights "curse of dimensionality" (data sparse in high-D).
+\subtopic{Principal Component Analysis (PCA) (W8):}
+\par\textit{How it Works:} Finds new, uncorrelated coordinate system. [Image of PCA projection]
+\par 1. Standardize data (mean=0, std=1).
+\par 2. Compute \textit{Covariance Matrix} \mathsym{\Sigma}.
+\par 3. Find \textit{eigenvectors} \mathsym{V} (new axes/principal components) and \textit{eigenvalues} \mathsym{\lambda} (variance explained by each axis). Solves \mathsym{\Sigma V = \lambda V}.
+\par 4. Components are orthogonal \& ordered by \mathsym{\lambda}. Select top K components to reduce dimensionality.
+\par\textit{Pros/Cons:} Reduces noise, visualizes data. Loss of info, components hard to interpret.
+
+\topic{9. Supervised: Regression \& Gradient Descent (W9)}
+\subtopic{Simple Linear Regression (W9):} Predict continuous value. Finds "line of best fit" \mathsym{Y = \alpha + \beta X}.
+\par\textit{Ordinary Least Squares (OLS):} Finds \mathsym{\hat{\alpha}} and \mathsym{\hat{\beta}} that minimize \mathsym{\sum(y_i - \hat{y}_i)^2}.
+\par \mathsym{\hat{\beta} = \frac{\Sigma(x_i - \overline{x})(y_i - \overline{y})}{\Sigma(x_i - \overline{x})^2} = \frac{cov(x,y)}{Var(x)}}.
+\par \mathsym{\hat{\alpha} = \overline{y} - \hat{\beta}\overline{x}}.
+\par\textit{R-squared:} Goodness of fit. \mathsym{R^{2} = 1 - \frac{SSE}{SST}}.
+\subtopic{Multiple Linear Regression (W9):} Extends to \mathsym{\geq 2} predictors.
+\par Model: \mathsym{h_{\theta}(x) = \Sigma_{j=0}^{d} \theta_j x_j = \theta^T x} (assuming \mathsym{x_0=1}).
+\par Cost Function \mathsym{J(\theta)}: \mathsym{\frac{1}{2n}\Sigma_{i=1}^{n}(h_{\theta}(x^{(i)})-y^{(i)})^{2}}. Goal is \mathsym{\min_{\theta} J(\theta)}.
+\par Regularization (W9): Penalize large \mathsym{\theta_j} to prevent overfitting.
+\par Cost: \mathsym{J(\theta) = \frac{1}{2n}\Sigma_{i=1}^{n}(h_{\theta}(x^{(i)})-y^{(i)})^{2} + \lambda\Sigma_{j=1}^{d}\theta_{j}^{2}} (\mathsym{\lambda} = reg. parameter).
+\subtopic{Logistic Regression (W9):} For classification (predict discrete category, e.g. 0/1).
+\par Model: Uses \textit{sigmoid (logistic) function} to output probability (0-1). 
+\par \mathsym{h_{\theta}(x) = g(\theta^T x) = \frac{1}{1 + e^{-\theta^T x}}}.
+\par Predict \mathsym{y=1} if \mathsym{h_{\theta}(x) \ge 0.5} (\mathsym{\theta^T x \ge 0}).
+\par\textit{Cost Function (Cross-Entropy):} Convex.
+\par \mathsym{J(\theta) = -\frac{1}{n}\Sigma_{i=1}^{n}[y^{(i)}\log(h_{\theta}(x^{(i)})) + (1-y^{(i)})\log(1-h_{\theta}(x^{(i)}))]}.
+\subtopic{Gradient Descent (W9):} Optimization algorithm. Iteratively adjusts \mathsym{\theta_j} to minimize cost \mathsym{J(\theta)}. 
+\par Update rule: \mathsym{\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)} (\mathsym{\alpha} = \text{learning rate}).
+\par For LinReg: \mathsym{\frac{\partial J}{\partial \theta_j} = \frac{1}{n}\Sigma_{i=1}^{n}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)}}.
+\par For LogReg: \mathsym{\frac{\partial J}{\partial \theta_j} = \frac{1}{n}\Sigma_{i=1}^{n}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)}}. (Same formula, but \mathsym{h_{\theta}} is different).
+\par\textit{Variants:} \textit{Batch} (uses all \mathsym{n} samples per step), \textit{Stochastic (SGD)} (1 sample per step), \textit{Mini-Batch} (b samples per step).
+
+% --- COLUMN 5 ---
+
+\topic{10. Supervised: Decision Trees (W10)}
+\subtopic{Concept (W10):} Tree model. Nodes are feature questions (tests), leaves are class predictions. Interpretable. [Image of Decision tree structure]
+\subtopic{Algorithm (ID3) (W10):} Greedy, top-down, recursive divide-and-conquer.
+\par 1. Start with all examples at root.
+\par 2. Select best attribute to split on (based on Information Gain).
+\par 3. Partition data based on attribute value.
+\par 4. Recurse on subsets.
+\par 5. Stop if all samples in node are same class, or no attributes left.
+\subtopic{Splitting Criterion (W10):} Choose attribute with highest \textit{Information Gain (IG)}.
+\par\textit{Information Gain (IG):} Measures reduction in uncertainty (Entropy).
+\par \mathsym{IG(Y|X) = H(Y) - H(Y|X)}.
+\par\textit{Entropy} \mathsym{H(Y) = -\sum_{i=1}^{m} p_{i} \log_2(p_{i})}: Uncertainty of class \mathsym{Y} (\mathsym{p_i} = \text{prob of class } i). 0=pure, 1=max uncertainty.
+\par\textit{Conditional Entropy} \mathsym{H(Y|X) = \sum_{v} p(X=v) H(Y|X=v)}: Avg. entropy after splitting on attribute X.
+\subtopic{Ensemble Methods (W10):} \textit{Random Forest}: Builds many trees on random subsets of data (\textit{bagging}) \& features; prediction by voting. Reduces overfitting.
+\par\textit{Pros/Cons:} Interpretable, handles categorical/numerical, no scaling needed. Prone to overfitting (pruning helps), unstable.
+
+\topic{11. Supervised: Naïve Bayes \& Unstructured Data (W11)}
+\subtopic{Unstructured Data (W11):} Info without a pre-defined data model (e.g., text, images).
+\subtopic{Feature Extraction (Text) (W11):}
+\par\textit{Bag of Words (BoW):} Represents text as word frequencies, ignoring grammar/order.
+\par\textit{Tokenization:} Split text into words (tokens).
+\par\textit{Normalization:} Map words to standard form (e.g., lowercasing, \textit{stemming} (e.g. 'runn'), \textit{lemmatization} (e.g. 'run')).
+\par\textit{Weighting:}
+\par \textit{Term Frequency (TF):} \mathsym{\text{tf}(t,d)} = \text{count of term } t \text{ in doc } d.
+\par \textit{Inverse Doc Freq (IDF):} \mathsym{\text{idf}(t) = \log \frac{N}{n_t}} (N=total docs, \mathsym{n_t}=docs with term \mathsym{t}). Boosts rare words.
+\par \textit{TF-IDF:} \mathsym{\text{tfidf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t)}.
+\subtopic{Naïve Bayes Classifier (W11):} Probabilistic model using Bayes' Theorem.
+\par Goal: Find class \mathsym{C_k} that maximizes posterior probability.
+\par \mathsym{P(C_k | \mathbf{x}) \propto P(\mathbf{x} | C_k) P(C_k)}.
+\par\textit{"Naïve" Assumption (W11):} All features (words) \mathsym{x_i} are \textit{conditionally independent} given the class \mathsym{C_k}.
+\par \mathsym{P(\mathbf{x} | C_k) = \prod_{i=1}^n P(x_i | C_k)}.
+\subtopic{Laplace Smoothing (W11):} Handles unseen words (avoids zero-probability). Adds 1.
+\par \mathsym{p(w|c)=\frac{\text{count}(w,c)+1}{\text{count(word},c) + \text{count(word)}}}
+\par (\mathsym{\text{count(word},c)} = \text{total words in class } c; \mathsym{\text{count(word)}} = \text{vocab size}).
+\par\textit{Pros/Cons:} Fast, simple, handles high-D data well (text). Assumption of independence is often violated.
+
+\end{multicols}
+\end{document}
