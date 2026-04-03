@@ -1,0 +1,350 @@
+% Cheatsheet Template — How to Use This Template
+\documentclass[a4paper,landscape]{article}
+\usepackage{xcolor}
+\usepackage[top=.6mm,bottom=3.4mm,left=4.8mm,right=4mm]{geometry}
+\usepackage{fontspec}
+\usepackage{newunicodechar}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=0pt,topsep=0pt, itemsep=0pt, parsep=0pt, label=\textbullet}
+\setlength{\columnsep}{7pt}
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\defaultfontfeatures{Ligatures=TeX}
+\setsansfont{Verdana}
+\begin{document}
+\fontsize{5pt}{5pt}\selectfont
+\raggedright
+\begin{multicols}{7}
+
+\newcommand{\hlhighlight}[1]{%
+    \begingroup
+        \setlength{\fboxsep}{0pt}
+        \colorbox{yellow}{\strut\textbf{#1}}%
+    \endgroup
+}
+\definecolor{sectitlecolor}{HTML}{0050D0}
+\definecolor{conceptcolor}{HTML}{008B8B} % teal color hex refined
+\definecolor{procnamecolor}{HTML}{9B30FF}
+\definecolor{categorycolor}{HTML}{228B22}
+\newcommand{\sectitle}[1]{\textcolor{sectitlecolor}{\textbf{#1}}}
+\newcommand{\concept}[1]{\textcolor{conceptcolor}{\textbf{#1}}}
+\newcommand{\procname}[1]{\textcolor{procnamecolor}{\textbf{#1}}}
+\newcommand{\category}[1]{\textcolor{categorycolor}{\textbf{#1}}}
+\newcommand{\lbl}[1]{\textcolor{categorycolor}{\textbf{#1}}}
+\newcommand{\lblnb}[1]{\textcolor{categorycolor}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 1 — DOCUMENT SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Cheatsheet Template — How to Use}
+
+\sectitle{What is this template?}
+\begin{itemize}
+\item A compact, \concept{A4 landscape} cheat-sheet layout built with \LaTeX.
+\item Designed for \concept{dense, information-rich} reference sheets (exams, revision, quick reference).
+\item Uses a \concept{7-column} layout, \concept{5 pt font}, and custom colour-coded commands.
+\end{itemize}
+
+\sectitle{Getting Started}
+\begin{itemize}
+\item Copy \textbf{this file} to a new name (e.g.\ \texttt{MY\_cheatsheet.tex}).
+\item Keep the \concept{preamble} (lines 1–36) unchanged; edit only the body content.
+\item Compile with \concept{XeLaTeX} (required for \texttt{fontspec} / Verdana).
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 2 — PAGE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Page \& Layout Setup}
+
+\sectitle{Document Class}
+\begin{itemize}
+\item \lbl{Class:} \texttt{article}
+\item \lbl{Options:} \texttt{a4paper, landscape}
+\item Landscape orientation gives more horizontal space for columns.
+\end{itemize}
+
+\sectitle{Geometry (Margins)}
+\begin{itemize}
+\item Package: \texttt{geometry}
+\item \lbl{top:} 0.6 mm \quad \lbl{bottom:} 3.4 mm
+\item \lbl{left:} 4.8 mm \quad \lbl{right:} 4 mm
+\item Extremely tight margins to maximise printable area.
+\end{itemize}
+
+\sectitle{Columns}
+\begin{itemize}
+\item Package: \texttt{multicol}
+\item \lbl{Columns:} \texttt{\textbackslash begin\{multicols\}\{7\}}
+\item \lbl{Column gap:} \texttt{\textbackslash setlength\{\textbackslash columnsep\}\{7pt\}}
+\item Change \texttt{7} to fewer columns (e.g.\ \texttt{5}) for more readable text.
+\end{itemize}
+
+\sectitle{Font \& Size}
+\begin{itemize}
+\item \lbl{Engine:} XeLaTeX (required)
+\item \lbl{Font:} Verdana via \texttt{\textbackslash setsansfont\{Verdana\}}
+\item \lbl{Family:} Sans-serif default (\texttt{\textbackslash sfdefault})
+\item \lbl{Size:} \texttt{\textbackslash fontsize\{5pt\}\{5pt\}\textbackslash selectfont}
+\item \lbl{Alignment:} \texttt{\textbackslash raggedright} (no justification)
+\item \lbl{Page style:} \texttt{\textbackslash pagestyle\{empty\}} — no headers/footers.
+\end{itemize}
+
+\sectitle{List Spacing}
+\begin{itemize}
+\item Package: \texttt{enumitem}
+\item \texttt{\textbackslash setlist[itemize]\{leftmargin=0pt, topsep=0pt, itemsep=0pt, parsep=0pt, label=\textbackslash textbullet\}}
+\item Zero extra spacing keeps lists compact.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 3 — CUSTOM COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Custom Colour Commands}
+
+\sectitle{Colour Palette}
+\begin{itemize}
+\item \textcolor{yellow}{\textbf{yellow}} — highlight background (section banner)
+\item \sectitle{sectitlecolor \#0050D0} — section title (dark blue)
+\item \concept{conceptcolor \#008B8B} — key concept (teal)
+\item \procname{procnamecolor \#9B30FF} — process name (purple)
+\item \category{categorycolor \#228B22} — category / label (green)
+\end{itemize}
+
+\sectitle{\textbackslash hlhighlight\{text\}}
+\begin{itemize}
+\item Output: \hlhighlight{Major Section Banner}
+\item \lbl{Purpose:} Top-level section banner with yellow background.
+\item \lbl{Usage:} \texttt{\textbackslash hlhighlight\{Introduction\}}
+\item Implemented with \texttt{\textbackslash colorbox\{yellow\}\{\textbackslash strut\textbackslash textbf\{…\}\}}.
+\item Use sparingly — one per major topic area.
+\end{itemize}
+
+\sectitle{\textbackslash sectitle\{text\}}
+\begin{itemize}
+\item Output: \sectitle{Section Title}
+\item \lbl{Purpose:} Sub-section heading (bold dark blue).
+\item \lbl{Usage:} \texttt{\textbackslash sectitle\{Key Characteristics:\}}
+\item Typically followed by an \texttt{itemize} list.
+\end{itemize}
+
+\sectitle{\textbackslash concept\{text\}}
+\begin{itemize}
+\item Output: \concept{Key Concept}
+\item \lbl{Purpose:} Highlight a term or concept inline (bold teal).
+\item \lbl{Usage:} \texttt{\textbackslash concept\{Temporary:\} Clear start and end.}
+\item Use within \texttt{\textbackslash item} lines to label the concept, then add plain text explanation.
+\end{itemize}
+
+\sectitle{\textbackslash procname\{text\}}
+\begin{itemize}
+\item Output: \procname{Process Name}
+\item \lbl{Purpose:} Name a process, step, or algorithm (bold purple).
+\item \lbl{Usage:} \texttt{\textbackslash procname\{6 Processes:\}}
+\item Best used as a standalone line before a list of steps.
+\end{itemize}
+
+\sectitle{\textbackslash category\{text\}}
+\begin{itemize}
+\item Output: \category{Category Label}
+\item \lbl{Purpose:} Classify or group items (bold green).
+\item \lbl{Usage:} \texttt{\textbackslash item \textbackslash category\{Pros:\} …}
+\end{itemize}
+
+\sectitle{\textbackslash lbl\{text\} and \textbackslash lblnb\{text\}}
+\begin{itemize}
+\item \lbl{lbl} — bold green label: \texttt{\textbackslash lbl\{Output:\}}
+\item \lblnb{lblnb} — non-bold green label: \texttt{\textbackslash lblnb\{Note:\}}
+\item \lbl{Purpose:} Inline key–value labels within list items.
+\item \lbl{Usage:} \texttt{\textbackslash item \textbackslash lbl\{Input:\} raw data \quad \textbackslash lbl\{Output:\} table}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 4 — CONTENT PATTERNS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Content Patterns}
+
+\sectitle{Pattern 1: Section with Bullets}
+\begin{itemize}
+\item \lbl{Code:} \texttt{\textbackslash sectitle\{Title\}} then \texttt{\textbackslash begin\{itemize\}…\textbackslash end\{itemize\}}
+\item \lbl{Use for:} Definitions, facts, lists of attributes.
+\item Each \texttt{\textbackslash item} can start with a \texttt{\textbackslash concept\{\}} or \texttt{\textbackslash category\{\}} label followed by explanation.
+\end{itemize}
+
+\sectitle{Pattern 2: Highlighted Banner + Bullets}
+\begin{itemize}
+\item \lbl{Code:} \texttt{\textbackslash hlhighlight\{Topic\}} then \texttt{\textbackslash begin\{itemize\}…}
+\item \lbl{Use for:} Opening a major topic area at the top of a column group.
+\item The yellow banner makes scanning faster on a dense sheet.
+\end{itemize}
+
+\sectitle{Pattern 3: Process List}
+\begin{itemize}
+\item \lbl{Code:} \texttt{\textbackslash procname\{N Processes:\}} then \texttt{\textbackslash begin\{itemize\}…}
+\item \lbl{Use for:} Numbered process steps or algorithms.
+\item Use \texttt{\textbackslash lbl\{Step name:\}} inside each \texttt{\textbackslash item} for the step label.
+\end{itemize}
+
+\sectitle{Pattern 4: Key–Value Inline}
+\begin{itemize}
+\item \lbl{Code:} \texttt{\textbackslash item \textbackslash concept\{Term:\} explanation text}
+\item \lbl{Use for:} Glossary entries, attribute lists, enum definitions.
+\item Combine \texttt{\textbackslash concept}, \texttt{\textbackslash category}, or \texttt{\textbackslash lbl} for the key and plain text for the value.
+\end{itemize}
+
+\sectitle{Pattern 5: Nested Categorisation}
+\begin{itemize}
+\item \lbl{Code:}
+\item \texttt{\textbackslash item \textbackslash category\{Pros:\}}
+\item \texttt{\textbackslash item First pro. \textbackslash item Second pro.}
+\item \lbl{Use for:} Pros/Cons, Best-suited/Avoid, Features/Limitations.
+\item Avoid deep nesting — keep all items at the same indent level.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 5 — PACKAGES USED
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Packages Reference}
+
+\sectitle{Core Packages}
+\begin{itemize}
+\item \concept{xcolor} — colour support, \texttt{\textbackslash definecolor}, \texttt{\textbackslash textcolor}, \texttt{\textbackslash colorbox}.
+\item \concept{geometry} — custom page margins.
+\item \concept{fontspec} — Unicode font loading (XeLaTeX/LuaLaTeX only).
+\item \concept{newunicodechar} — map Unicode chars to \LaTeX{} commands.
+\item \concept{microtype} — microtypographic enhancements (better line-breaking).
+\item \concept{multicol} — multi-column layout.
+\item \concept{enumitem} — fine-grained list control (spacing, labels).
+\end{itemize}
+
+\sectitle{Adding Math}
+\begin{itemize}
+\item Add \texttt{\textbackslash usepackage\{amsmath\}} and \texttt{\textbackslash usepackage\{amssymb\}} in the preamble.
+\item Use inline math: \texttt{\$formula\$} e.g.\ $\mu = \frac{\sum x}{n}$
+\item Use display math: \texttt{\textbackslash[\ldots\textbackslash]} for centred equations.
+\end{itemize}
+
+\sectitle{Adding Tables}
+\begin{itemize}
+\item Add \texttt{\textbackslash usepackage\{booktabs\}} for professional table rules.
+\item Use \texttt{\textbackslash renewcommand\{\textbackslash arraystretch\}\{0.9\}} to tighten row spacing.
+\item Prefix columns with \texttt{@\{\}} to remove extra padding: \texttt{\textbackslash begin\{tabular\}\{@\{\}lll@\{\}\}}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 6 — TIPS & WORKFLOW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Tips \& Workflow}
+
+\sectitle{Compile Correctly}
+\begin{itemize}
+\item \lbl{Engine:} \concept{XeLaTeX} — do \textbf{not} use pdfLaTeX (fontspec will fail).
+\item \lbl{Command:} \texttt{xelatex filename.tex}
+\item Run \concept{twice} if cross-references or layout shifts occur.
+\item \lbl{IDE:} Overleaf (set compiler to XeLaTeX), VS Code + LaTeX Workshop, or TeX Live CLI.
+\end{itemize}
+
+\sectitle{Fitting Content on One Page}
+\begin{itemize}
+\item Reduce font size: \texttt{\textbackslash fontsize\{4.5pt\}\{4.5pt\}}
+\item Increase columns: change \texttt{\{7\}} to \texttt{\{8\}} or \texttt{\{9\}}.
+\item Reduce column gap: \texttt{\textbackslash setlength\{\textbackslash columnsep\}\{5pt\}}.
+\item Trim margin further in the \texttt{geometry} options.
+\item Use \texttt{\textbackslash vspace\{-2pt\}} between sections to recover vertical space.
+\end{itemize}
+
+\sectitle{Organising Your Content}
+\begin{itemize}
+\item Group by \concept{topic/week} using \texttt{\textbackslash hlhighlight} banners.
+\item Within each topic use \texttt{\textbackslash sectitle} for sub-headings.
+\item Prioritise \concept{key terms}, \concept{formulas}, and \concept{process steps}.
+\item Use short, telegraphic sentences — omit articles (a/the) where possible.
+\item Place the most-referenced content in the \concept{leftmost columns}.
+\end{itemize}
+
+\sectitle{Colour Usage Guidelines}
+\begin{itemize}
+\item \hlhighlight{Yellow banner} — one per major topic, helps scan quickly.
+\item \sectitle{Blue title} — every named sub-section.
+\item \concept{Teal concept} — key vocabulary, technical terms.
+\item \procname{Purple process} — steps, algorithms, PMBOK processes.
+\item \category{Green category} — classification labels (Pros/Cons, Types, Roles).
+\item \lbl{Green bold label} — inline key–value keys.
+\item \lblnb{Green plain label} — softer inline labels, list prefixes.
+\end{itemize}
+
+\sectitle{Column Balance}
+\begin{itemize}
+\item \texttt{multicol} auto-balances columns on the last page.
+\item Insert \texttt{\textbackslash columnbreak} to force a column break manually.
+\item Use \texttt{\textbackslash vfill} to push content to the bottom of a column.
+\end{itemize}
+
+\sectitle{Common Pitfalls}
+\begin{itemize}
+\item \category{Font not found:} Verdana may not be installed on Linux; replace with \texttt{DejaVu Sans} or \texttt{Arial}.
+\item \category{Overfull hbox:} Shorten text, use \texttt{\textbackslash-} for manual hyphenation, or enable \texttt{microtype}.
+\item \category{Too many columns:} Columns narrower than \~{}2 cm become unreadable at 5 pt.
+\item \category{Missing \textbackslash end\{document\}:} Ensure \texttt{\textbackslash end\{multicols\}} and \texttt{\textbackslash end\{document\}} close the file.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SECTION 7 — QUICK REFERENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hlhighlight{Quick-Reference Card}
+
+\sectitle{Preamble Checklist}
+\begin{itemize}
+\item \lbl{\checkmark} \texttt{\textbackslash documentclass[a4paper,landscape]\{article\}}
+\item \lbl{\checkmark} \texttt{\textbackslash usepackage\{xcolor\}}
+\item \lbl{\checkmark} \texttt{\textbackslash usepackage[margins]\{geometry\}}
+\item \lbl{\checkmark} \texttt{\textbackslash usepackage\{fontspec\}}
+\item \lbl{\checkmark} \texttt{\textbackslash usepackage\{multicol\}}
+\item \lbl{\checkmark} \texttt{\textbackslash usepackage\{enumitem\}}
+\item \lbl{\checkmark} \texttt{\textbackslash setsansfont\{Verdana\}}
+\item \lbl{\checkmark} \texttt{\textbackslash pagestyle\{empty\}}
+\end{itemize}
+
+\sectitle{Body Checklist}
+\begin{itemize}
+\item \lbl{\checkmark} \texttt{\textbackslash fontsize\{5pt\}\{5pt\}\textbackslash selectfont}
+\item \lbl{\checkmark} \texttt{\textbackslash raggedright}
+\item \lbl{\checkmark} \texttt{\textbackslash begin\{multicols\}\{7\}}
+\item \lbl{\checkmark} Define \texttt{\textbackslash hlhighlight}, colours, and \texttt{\textbackslash sectitle} commands
+\item \lbl{\checkmark} Content using patterns described above
+\item \lbl{\checkmark} \texttt{\textbackslash end\{multicols\}}
+\item \lbl{\checkmark} \texttt{\textbackslash end\{document\}}
+\end{itemize}
+
+\sectitle{Command Summary Table}
+\begin{itemize}
+\item \hlhighlight{hlhighlight} — yellow bg, bold, major banner
+\item \sectitle{sectitle} — dark blue bold, sub-section
+\item \concept{concept} — teal bold, key term
+\item \procname{procname} — purple bold, process
+\item \category{category} — green bold, category
+\item \lbl{lbl} — green bold, inline label
+\item \lblnb{lblnb} — green plain, soft label
+\end{itemize}
+
+\sectitle{Minimal Working Example}
+\begin{itemize}
+\item \texttt{\textbackslash hlhighlight\{My Topic\}}
+\item \texttt{\textbackslash sectitle\{Sub-section\}}
+\item \texttt{\textbackslash begin\{itemize\}}
+\item \texttt{\textbackslash item \textbackslash concept\{Term:\} definition.}
+\item \texttt{\textbackslash item \textbackslash category\{Pros:\} advantage.}
+\item \texttt{\textbackslash end\{itemize\}}
+\end{itemize}
+
+\end{multicols}
+\end{document}
